@@ -1,4 +1,3 @@
-import iconv from 'iconv-lite';
 import {Observable} from 'rxjs';
 import request from 'superagent';
 
@@ -44,12 +43,12 @@ export class Client {
    * @return {Observable<string>} The response as string.
    */
   sendMessage(text) {
-    let encoded = iconv.encode(text, 'ISO-8859-1').trim();
+    let encoded = Buffer.from(text).toString('latin1').trim();
     if (!encoded.length) return Observable.throw(new Error('The specified message is empty.'));
 
     return new Observable(observer => request.get(Client.END_POINT)
       .query({
-        msg: text.substr(0, 160),
+        msg: encoded.substr(0, 160),
         pass: this.password,
         user: this.userName
       })
