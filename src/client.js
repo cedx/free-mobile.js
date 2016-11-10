@@ -44,7 +44,7 @@ export class Client {
    * @return {Observable<string>} The response as string.
    */
   sendMessage(text) {
-    let encoded = iconv.encode(text, 'ISO-8859-1');
+    let encoded = iconv.encode(text, 'ISO-8859-1').trim();
     if (!encoded.length) return Observable.throw(new Error('The specified message is empty.'));
 
     return new Observable(observer => request.get(Client.END_POINT)
