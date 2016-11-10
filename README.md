@@ -21,7 +21,7 @@ This package has an API based on [Observables](http://reactivex.io/intro.html).
 
 It provides a single class, `Client` which allow to send messages to your mobile phone by using the `sendMessage` method:
 
-```php
+```javascript
 const {Client} = require('free-mobile');
 
 let client = new Client('your Free Mobile user name', 'your Free Mobile identification key');
