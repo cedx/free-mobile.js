@@ -22,7 +22,7 @@ describe('Client', function() {
   describe('#sendMessage()', () => {
     it('should disallow empty messages', done => {
       new Client('foo', 'bar').sendMessage('').subscribe(
-        () => done(new Error()),
+        () => done(new Error('The message is empty.')),
         () => done()
       );
     });
