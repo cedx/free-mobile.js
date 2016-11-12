@@ -8,12 +8,12 @@ export class Client {
 
   /**
    * Initializes a new instance of the class.
-   * @param {string} userName The user name associated to the account.
+   * @param {string} username The user name associated to the account.
    * @param {string} password The identification key associated to the account.
    * @throws {Error} The specified user name or password is empty.
    */
-  constructor(userName, password) {
-    if (typeof userName != 'string' || !userName.length) throw new Error('The specified user name is empty.');
+  constructor(username, password) {
+    if (typeof username != 'string' || !username.length) throw new Error('The specified user name is empty.');
     if (typeof password != 'string' || !password.length) throw new Error('The specified password is empty.');
 
     /**
@@ -26,7 +26,7 @@ export class Client {
      * The user name associated to the account.
      * @type {string}
      */
-    this.userName = userName;
+    this.username = username;
   }
 
   /**
@@ -50,7 +50,7 @@ export class Client {
       .query({
         msg: encoded.substr(0, 160),
         pass: this.password,
-        user: this.userName
+        user: this.username
       })
       .end((err, res) => {
         if (err || !res.ok) observer.error(new Error(err ? err.status : res.status));
