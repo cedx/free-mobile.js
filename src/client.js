@@ -1,5 +1,5 @@
 import {Observable} from 'rxjs';
-import request from 'superagent';
+import superagent from 'superagent';
 
 /**
  * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
@@ -46,7 +46,7 @@ export class Client {
     let encoded = Buffer.from(text).toString('latin1').trim();
     if (!encoded.length) return Observable.throw(new Error('The specified message is empty.'));
 
-    return new Observable(observer => request.get(Client.END_POINT)
+    return new Observable(observer => superagent.get(Client.END_POINT)
       .query({
         msg: encoded.substr(0, 160),
         pass: this.password,
