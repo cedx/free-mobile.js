@@ -34,4 +34,16 @@ describe('Client', function() {
           .subscribe(null, done, done);
       });
   });
+
+  /**
+   * @test {Client#toJSON}
+   */
+  describe('#toJSON()', () => {
+    it('should return an object instance with the same public values', () => {
+      let data = new Client({username: 'anonymous', password: 'secret'}).toJSON();
+      assert.equal(data.constructor.name, 'Object');
+      assert.equal(data.password, 'secret');
+      assert.equal(data.username, 'anonymous');
+    });
+  });
 });

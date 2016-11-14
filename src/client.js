@@ -61,4 +61,24 @@ export class Client {
       })
     );
   }
+
+  /**
+   * Converts this object to a map in JSON format.
+   * @return {object} The map in JSON format corresponding to this object.
+   */
+  toJSON() {
+    return {
+      password: this.password,
+      username: this.username
+    };
+  }
+
+  /**
+   * Returns a string representation of this object.
+   * @return {string} The string representation of this object.
+   */
+  toString() {
+    let json = JSON.stringify(this.toJSON(), null, 2);
+    return `${this.constructor.name} ${json}`;
+  }
 }
