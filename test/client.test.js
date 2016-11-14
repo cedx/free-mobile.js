@@ -12,7 +12,7 @@ describe('Client', function() {
    */
   describe('#constructor()', () => {
     it('should initialize the existing properties', () => {
-      let client = new Client({username: 'anonymous', password: 'secret'});
+      let client = new Client({password: 'secret', username: 'anonymous'});
       assert.equal(client.password, 'secret');
       assert.equal(client.username, 'anonymous');
     });
@@ -34,7 +34,7 @@ describe('Client', function() {
     });
 
     it('should not send invalid messages with valid credentials', done => {
-      new Client({username: 'anonymous', password: 'secret'}).sendMessage('').subscribe(
+      new Client({password: 'secret', username: 'anonymous'}).sendMessage('').subscribe(
         () => done(new Error('The message is empty.')),
         () => done()
       );
@@ -42,7 +42,7 @@ describe('Client', function() {
 
     if ('FREEMOBILE_USERNAME' in process.env && 'FREEMOBILE_PASSWORD' in process.env)
       it('should send valid messages with valid credentials', done => {
-        new Client({username: process.env.FREEMOBILE_USERNAME, password: process.env.FREEMOBILE_PASSWORD})
+        new Client({password: process.env.FREEMOBILE_PASSWORD, username: process.env.FREEMOBILE_USERNAME})
           .sendMessage('Bonjour Cédric !')
           .subscribe(null, done, done);
       });
@@ -53,7 +53,7 @@ describe('Client', function() {
    */
   describe('#toJSON()', () => {
     it('should return an object instance with the same public values', () => {
-      let data = new Client({username: 'anonymous', password: 'secret'}).toJSON();
+      let data = new Client({password: 'secret', username: 'anonymous'}).toJSON();
       assert.equal(data.constructor.name, 'Object');
       assert.equal(data.password, 'secret');
       assert.equal(data.username, 'anonymous');
