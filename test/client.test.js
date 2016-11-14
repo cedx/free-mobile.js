@@ -11,8 +11,14 @@ describe('Client', function() {
    * @test {Client#constructor}
    */
   describe('#constructor()', () => {
-    it('should throw an error if arguments are invalid', () => {
-      assert.throws(() => new Client('', ''));
+    it('should initialize the existing properties', () => {
+      let client = new Client({username: 'anonymous', password: 'secret'});
+      assert.equal(client.password, 'secret');
+      assert.equal(client.username, 'anonymous');
+    });
+
+    it('should not create new properties', () => {
+      assert.ok(!('foo' in new Client({foo: 'bar'})));
     });
   });
 
@@ -20,17 +26,24 @@ describe('Client', function() {
    * @test {Client#sendMessage}
    */
   describe('#sendMessage()', () => {
-    it('should disallow empty messages', done => {
-      new Client('foo', 'bar').sendMessage('').subscribe(
+    it('should not send valid messages with invalid credentials', done => {
+      new Client().sendMessage('Hello World!').subscribe(
+        () => done(new Error('The credentials are invalid.')),
+        () => done()
+      );
+    });
+
+    it('should not send invalid messages with valid credentials', done => {
+      new Client({username: 'anonymous', password: 'secret'}).sendMessage('').subscribe(
         () => done(new Error('The message is empty.')),
         () => done()
       );
     });
 
     if ('FREEMOBILE_USERNAME' in process.env && 'FREEMOBILE_PASSWORD' in process.env)
-      it('should send the messages with valid credentials', done => {
-        new Client(process.env.FREEMOBILE_USERNAME, process.env.FREEMOBILE_PASSWORD)
-          .sendMessage('Hello World!')
+      it('should send valid messages with valid credentials', done => {
+        new Client({username: process.env.FREEMOBILE_USERNAME, password: process.env.FREEMOBILE_PASSWORD})
+          .sendMessage('Bonjour Cédric !')
           .subscribe(null, done, done);
       });
   });

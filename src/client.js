@@ -8,25 +8,21 @@ export class Client {
 
   /**
    * Initializes a new instance of the class.
-   * @param {string} username The user name associated to the account.
-   * @param {string} password The identification key associated to the account.
-   * @throws {Error} The specified user name or password is empty.
+   * @param {object} [options] An object specifying values used to initialize this instance.
    */
-  constructor(username, password) {
-    if (typeof username != 'string' || !username.length) throw new Error('The specified user name is empty.');
-    if (typeof password != 'string' || !password.length) throw new Error('The specified password is empty.');
+  constructor(options = {}) {
 
     /**
      * The identification key associated to the account.
      * @type {string}
      */
-    this.password = password;
+    this.password = typeof options.password == 'string' ? options.password : '';
 
     /**
      * The user name associated to the account.
      * @type {string}
      */
-    this.username = username;
+    this.username = typeof options.username == 'string' ? options.username : '';
   }
 
   /**
@@ -43,12 +39,15 @@ export class Client {
    * @return {Observable<string>} The response as string.
    */
   sendMessage(text) {
-    let encoded = Buffer.from(text).toString('latin1').trim();
-    if (!encoded.length) return Observable.throw(new Error('The specified message is empty.'));
+    if (!this.username.length || !this.password.length)
+      return Observable.throw(new Error('The account credentials are invalid.'));
+
+    let message = text.trim();
+    if (!message.length) return Observable.throw(new Error('The specified message is empty.'));
 
     return new Observable(observer => superagent.get(Client.END_POINT)
       .query({
-        msg: encoded.substr(0, 160),
+        msg: message.substr(0, 160),
         pass: this.password,
         user: this.username
       })
