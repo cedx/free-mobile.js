@@ -7,6 +7,14 @@ import superagent from 'superagent';
 export class Client {
 
   /**
+   * The URL of the API end point.
+   * @type {string}
+   */
+  static get END_POINT() {
+    return 'https://smsapi.free-mobile.fr/sendmsg';
+  }
+
+  /**
    * Initializes a new instance of the class.
    * @param {object} [options] An object specifying values used to initialize this instance.
    */
@@ -23,14 +31,6 @@ export class Client {
      * @type {string}
      */
     this.username = typeof options.username == 'string' ? options.username : '';
-  }
-
-  /**
-   * The URL of the API end point.
-   * @type {string}
-   */
-  static get END_POINT() {
-    return 'https://smsapi.free-mobile.fr/sendmsg';
   }
 
   /**
