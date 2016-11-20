@@ -52,7 +52,7 @@ export class Client {
         user: this.username
       })
       .end((err, res) => {
-        if (err || !res.ok) observer.error(new Error(err ? err.status : res.status));
+        if (err) observer.error(err);
         else {
           observer.next(res.text);
           observer.complete();
