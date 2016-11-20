@@ -45,6 +45,20 @@ let promise = client.sendMessage('Hello World!').toPromise();
 promise.then(() => console.log('The message was sent successfully.'));
 ```
 
+## Unit Tests
+In order to run the tests, you must set two environment variables:
+
+```shell
+$ export FREEMOBILE_USERNAME="<your Free Mobile user name>"
+$ export FREEMOBILE_PASSWORD="<your Free Mobile identification key>"
+```
+
+Then, you can run the `test` script from the command prompt:
+
+```shell
+$ npm test
+```
+
 ## See Also
 - [API Reference](http://dev.belin.io/free-mobile.js)
 - [Code Quality](https://www.codacy.com/app/cedx/free-mobile-js)
