@@ -60,7 +60,7 @@ $ npm test
 ```
 
 ## See Also
-- [API Reference](http://dev.belin.io/free-mobile.js)
+- [API Reference](https://cedx.github.io/free-mobile.js)
 - [Code Quality](https://www.codacy.com/app/cedx/free-mobile-js)
 - [Continuous Integration](https://travis-ci.org/cedx/free-mobile.js)
 
