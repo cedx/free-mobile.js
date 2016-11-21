@@ -7,14 +7,14 @@
   "bugs": "https://github.com/cedx/free-mobile.js/issues",
   "license": "Apache-2.0",
   "repository": "cedx/free-mobile.js",
-  "version": "2.0.0",
+  "version": "2.1.0",
 
   "jsnext:main": "./src/index",
   "main": "./lib/index",
 
   "dependencies": {
     "rxjs": "^5.0.0-rc.4",
-    "superagent": "^2.3.0"
+    "superagent": "^3.0.0"
   },
   "devDependencies": {
     "@cedx/gulp-david": "^3.0.2",
