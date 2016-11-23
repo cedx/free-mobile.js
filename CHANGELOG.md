@@ -1,6 +1,9 @@
 # Changelog
 This file contains highlights of what changes on each version of the [Free Mobile for JS](https://github.com/cedx/free-mobile.js) library.
 
+## Version 2.2.0
+- Added the `onRequest` and `onResponse` event streams.
+
 ## Version 2.1.0
 - Updated the [SuperAgent](https://visionmedia.github.io/superagent) dependency.
 

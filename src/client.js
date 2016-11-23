@@ -1,4 +1,4 @@
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import superagent from 'superagent';
 
 /**
@@ -31,12 +31,42 @@ export class Client {
      * @type {string}
      */
     this.username = typeof options.username == 'string' ? options.username : '';
+
+    /**
+     * The handler of "request" events.
+     * @type {Subject<superagent.Request>}
+     */
+    this._onRequest = new Subject();
+
+    /**
+     * The handler of "response" events.
+     * @type {Subject<superagent.Response>}
+     */
+    this._onResponse = new Subject();
+  }
+
+  /**
+   * The stream of "request" events.
+   * @type {Observable<superagent.Request>}
+   */
+  get onRequest() {
+    return this._onRequest.asObservable();
+  }
+
+  /**
+   * The stream of "response" events.
+   * @type {Observable<superagent.Response>}
+   */
+  get onResponse() {
+    return this._onResponse.asObservable();
   }
 
   /**
    * Sends a SMS message to the underlying account.
    * @param {string} text The text of the message to send.
    * @return {Observable<string>} The response as string.
+   * @emits {superagent.Request} The "request" event.
+   * @emits {superagent.Response} The "response" event.
    */
   sendMessage(text) {
     if (!this.username.length || !this.password.length)
@@ -45,20 +75,23 @@ export class Client {
     let message = text.trim();
     if (!message.length) return Observable.throw(new Error('The specified message is empty.'));
 
-    return new Observable(observer => superagent.get(Client.END_POINT)
-      .query({
+    return new Observable(observer => {
+      let req = superagent.get(Client.END_POINT).query({
         msg: message.substr(0, 160),
         pass: this.password,
         user: this.username
-      })
-      .end((err, res) => {
+      });
+
+      this._onRequest.next(req);
+      req.end((err, res) => {
         if (err) observer.error(err);
         else {
+          this._onResponse.next(res);
           observer.next(res.text);
           observer.complete();
         }
-      })
-    );
+      });
+    });
   }
 
   /**
