@@ -51,6 +51,10 @@ describe('Client', function() {
    * @test {Client#sendMessage}
    */
   describe('#sendMessage()', () => {
+    it('should return an Observable', () => {
+      assert.ok(new Client().sendMessage('') instanceof Observable);
+    });
+
     it('should not send valid messages with invalid credentials', done => {
       new Client().sendMessage('Hello World!').subscribe(
         () => done(new Error('The credentials are invalid.')),
@@ -83,6 +87,22 @@ describe('Client', function() {
       assert.equal(Object.keys(data).length, 2);
       assert.equal(data.password, 'secret');
       assert.equal(data.username, 'anonymous');
+    });
+  });
+
+  /**
+   * @test {Client#toString}
+   */
+  describe('#toString()', () => {
+    let client = String(new Client({password: 'secret', username: 'anonymous'}));
+
+    it('should start with the class name of the client', () => {
+      assert.equal(client.indexOf('Client {'), 0);
+    });
+
+    it('should contain the properties of the client', () => {
+      assert.ok(client.indexOf('"password": "secret"') > 0);
+      assert.ok(client.indexOf('"username": "anonymous"') > 0);
     });
   });
 });
