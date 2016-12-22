@@ -1,5 +1,5 @@
 # Free Mobile for JS
-![Release](https://img.shields.io/npm/v/@cedx/free-mobile.svg) ![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg) ![Dependencies](https://david-dm.org/cedx/free-mobile.js.svg) ![Coverage](https://coveralls.io/repos/github/cedx/e5a0027047554e298db354bcf3defefc.svg) ![Build](https://travis-ci.org/cedx/free-mobile.js.svg)
+![Release](https://img.shields.io/npm/v/@cedx/free-mobile.svg) ![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg) ![Dependencies](https://david-dm.org/cedx/free-mobile.js.svg) ![Coverage](https://coveralls.io/repos/github/cedx/free-mobile.js/badge.svg) ![Build](https://travis-ci.org/cedx/free-mobile.js.svg)
 
 Send SMS messages to your [Free Mobile](http://mobile.free.fr) account, in [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
 
@@ -7,7 +7,7 @@ To use this library, you must have enabled SMS Notifications in the Options of y
 
 ## Requirements
 The latest [Node.js](https://nodejs.org) and [npm](https://www.npmjs.com) versions.
-If you plan to play with the sources, you will also need the [Gulp.js](http://gulpjs.com) latest version.
+If you plan to play with the sources, you will also need the latest [Gulp.js](http://gulpjs.com) version.
 
 ## Installing via [npm](https://www.npmjs.com)
 From a command prompt, run:
@@ -19,7 +19,7 @@ $ npm install --save @cedx/free-mobile
 ## Usage
 This package has an API based on [Observables](http://reactivex.io/intro.html).
 
-It provides a single class, `Client`, which allow to send messages to your mobile phone by using the `sendMessage` method:
+It provides a single class, `Client`, which allow to send messages to your mobile phone by using the `sendMessage()` method:
 
 ```javascript
 const {Client} = require('@cedx/free-mobile');
@@ -43,15 +43,15 @@ The `Client` class triggers some events during its life cycle:
 - `request` : emitted every time a request is made to the remote service.
 - `response` : emitted every time a response is received from the remote service.
 
-These events are exposed as `Observables`, you can subscribe to them using the `on<EventName>` properties:
+These events are exposed as `Observable`, you can subscribe to them using the `on<EventName>` properties:
 
 ```javascript
 client.onRequest.subscribe(
-  req => console.log(`Client request: ${JSON.stringify(req)}`)
+  request => console.log(`Client request: ${request.url}`)
 );
 
 client.onResponse.subscribe(
-  res => console.log(`Server response: ${JSON.stringify(res)}`)
+  response => console.log(`Server response: ${response.statusCode}`)
 );
 ```
 
@@ -79,7 +79,7 @@ $ npm test
 
 ## See also
 - [API reference](https://cedx.github.io/free-mobile.js)
-- [Code coverage](https://coveralls.io/github/cedx/free-mobile-js)
+- [Code coverage](https://coveralls.io/github/cedx/free-mobile.js)
 - [Continuous integration](https://travis-ci.org/cedx/free-mobile.js)
 
 ## License
