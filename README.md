@@ -1,13 +1,13 @@
 # Free Mobile for JS
-![Release](https://img.shields.io/npm/v/@cedx/free-mobile.svg) ![License](https://img.shields.io/npm/l/@cedx/free-mobile.svg) ![Downloads](https://img.shields.io/npm/dt/@cedx/free-mobile.svg) ![Dependencies](https://img.shields.io/david/cedx/free-mobile.js.svg) ![Code quality](https://img.shields.io/codacy/grade/e5a0027047554e298db354bcf3defefc.svg) ![Build](https://img.shields.io/travis/cedx/free-mobile.js.svg)
+![Release](https://img.shields.io/npm/v/@cedx/free-mobile.svg) ![License](https://img.shields.io/badge/license-Apache--2.0-blue.svg) ![Dependencies](https://david-dm.org/cedx/free-mobile.js.svg) ![Coverage](https://coveralls.io/repos/github/cedx/e5a0027047554e298db354bcf3defefc.svg) ![Build](https://travis-ci.org/cedx/free-mobile.js.svg)
 
 Send SMS messages to your [Free Mobile](http://mobile.free.fr) account, in [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
 
 To use this library, you must have enabled SMS Notifications in the Options of your [Subscriber Area](https://mobile.free.fr/moncompte).
 
 ## Requirements
-The latest [Node.js](https://nodejs.org) and [NPM](https://www.npmjs.com) versions.
-If you plan to play with the sources, you will also need the [Gulp.js](http://gulpjs.com/) latest version.
+The latest [Node.js](https://nodejs.org) and [npm](https://www.npmjs.com) versions.
+If you plan to play with the sources, you will also need the [Gulp.js](http://gulpjs.com) latest version.
 
 ## Installing via [npm](https://www.npmjs.com)
 From a command prompt, run:
@@ -77,10 +77,10 @@ Then, you can run the `test` script from the command prompt:
 $ npm test
 ```
 
-## See Also
-- [API Reference](https://cedx.github.io/free-mobile.js)
-- [Code Quality](https://www.codacy.com/app/cedx/free-mobile-js)
-- [Continuous Integration](https://travis-ci.org/cedx/free-mobile.js)
+## See also
+- [API reference](https://cedx.github.io/free-mobile.js)
+- [Code coverage](https://coveralls.io/github/cedx/free-mobile-js)
+- [Continuous integration](https://travis-ci.org/cedx/free-mobile.js)
 
 ## License
 [Free Mobile for JS](https://github.com/cedx/free-mobile.js) is distributed under the Apache License, version 2.0.
