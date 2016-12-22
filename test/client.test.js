@@ -2,6 +2,7 @@
 
 import assert from 'assert';
 import {Client} from '../src/index';
+import {Observable, Subject} from 'rxjs';
 
 /**
  * @test {Client}
@@ -21,6 +22,28 @@ describe('Client', function() {
 
     it('should not create new properties', () => {
       assert.ok(!('foo' in new Client({foo: 'bar'})));
+    });
+  });
+
+  /**
+   * @test {Client#onRequest}
+   */
+  describe('#onRequest', () => {
+    it('should return an Observable instead of the underlying Subject', () => {
+      let stream = new Client().onRequest;
+      assert.ok(stream instanceof Observable);
+      assert.ok(!(stream instanceof Subject));
+    });
+  });
+
+  /**
+   * @test {Client#onResponse}
+   */
+  describe('#onResponse', () => {
+    it('should return an Observable instead of the underlying Subject', () => {
+      let stream = new Client().onResponse;
+      assert.ok(stream instanceof Observable);
+      assert.ok(!(stream instanceof Subject));
     });
   });
 
