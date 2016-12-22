@@ -57,6 +57,7 @@ describe('Client', function() {
     it('should return an object instance with the same public values', () => {
       let data = new Client({password: 'secret', username: 'anonymous'}).toJSON();
       assert.equal(data.constructor.name, 'Object');
+      assert.equal(Object.keys(data).length, 2);
       assert.equal(data.password, 'secret');
       assert.equal(data.username, 'anonymous');
     });
