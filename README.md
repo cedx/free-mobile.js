@@ -31,7 +31,7 @@ let client = new Client({
 
 client.sendMessage('Hello World!').subscribe(
   () => console.log('The message was sent successfully.'),
-  err => console.log(`An error occurred: ${err}`)
+  error => console.log(`An error occurred: ${error}`)
 );
 ```
 
@@ -55,7 +55,7 @@ client.onResponse.subscribe(
 );
 ```
 
-## Promise Support
+## Promise support
 If you require it, an `Observable` can be converted to a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) by using the `toPromise()` method:
 
 ```javascript
@@ -63,7 +63,7 @@ let promise = client.sendMessage('Hello World!').toPromise();
 promise.then(() => console.log('The message was sent successfully.'));
 ```
 
-## Unit Tests
+## Unit tests
 In order to run the tests, you must set two environment variables:
 
 ```shell
