@@ -75,7 +75,7 @@ export class Client {
     let message = text.trim();
     if (!message.length) return Observable.throw(new Error('The specified message is empty.'));
 
-    return new Observable(observer => {
+    return Observable.create(observer => {
       let req = superagent.get(Client.END_POINT).query({
         msg: message.substr(0, 160),
         pass: this.password,
