@@ -5,7 +5,6 @@ const del = require('del');
 const gulp = require('gulp');
 const loadPlugins = require('gulp-load-plugins');
 const path = require('path');
-const pkg = require('./package.json');
 
 /**
  * The task plugins.
