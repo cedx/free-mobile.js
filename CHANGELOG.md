@@ -1,6 +1,9 @@
 # Changelog
 This file contains highlights of what changes on each version of the [Free Mobile for JS](https://github.com/cedx/free-mobile.js) library.
 
+## Version 2.4.0
+- Added the `sendMessage()` helper function.
+
 ## Version 2.3.0
 - Replaced the [Codacy](https://www.codacy.com) code coverage service by the [Coveralls](https://coveralls.io) one.
 - Updated the package dependencies.
