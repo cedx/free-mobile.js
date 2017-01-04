@@ -7,6 +7,6 @@ export * from './client';
  * @param {object} credentials The Free Mobile credentials.
  * @return {Observable<string>} The response as string.
  */
-function sendMessage(text, credentials = {username: '', password: ''}) {
+export function sendMessage(text, credentials) {
   return new Client(credentials).sendMessage(text);
 }
