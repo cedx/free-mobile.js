@@ -101,8 +101,8 @@ describe('Client', function() {
     });
 
     it('should contain the properties of the client', () => {
-      assert.ok(client.indexOf('"password": "secret"') > 0);
-      assert.ok(client.indexOf('"username": "anonymous"') > 0);
+      assert.ok(client.indexOf('"password":"secret"') > 0);
+      assert.ok(client.indexOf('"username":"anonymous"') > 0);
     });
   });
 });
