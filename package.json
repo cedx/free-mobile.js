@@ -7,46 +7,44 @@
   "bugs": "https://github.com/cedx/free-mobile.js/issues",
   "license": "Apache-2.0",
   "repository": "cedx/free-mobile.js",
-  "version": "2.4.0",
+  "version": "3.0.0",
 
   "jsnext:main": "./src/index",
   "main": "./lib/index",
 
   "dependencies": {
-    "rxjs": "^5.1.0",
-    "superagent": "^3.4.2"
+    "rxjs": "^5.2.0",
+    "superagent": "^3.5.0"
   },
   "devDependencies": {
-    "@cedx/gulp-david": "^3.1.0",
+    "@cedx/coveralls": "^0.2.0",
+    "@cedx/gulp-david": "^4.0.0",
     "babel-preset-latest": "^6.22.0",
-    "babel-register": "^6.22.0",
+    "babel-register": "^6.23.0",
+    "chai": "^3.5.0",
     "coveralls": "^2.11.16",
     "del": "^2.2.2",
     "esdoc": "^0.5.2",
     "gulp": "^3.9.1",
     "gulp-babel": "^6.1.2",
-    "gulp-istanbul": "^1.1.1",
     "gulp-eslint": "^3.0.1",
-    "gulp-load-plugins": "^1.5.0",
-    "gulp-mocha": "^3.0.1",
-    "isparta": "^4.0.0"
+    "mocha": "^3.2.0",
+    "nyc": "^10.1.2"
   },
   "engines": {
-    "node": ">=6.9.0"
+    "node": ">=7.6.0"
   },
   "keywords": [
     "api",
     "client",
     "free",
     "mobile",
-    "observable",
-    "rxjs",
     "sdk",
     "sms"
   ],
   "scripts": {
-    "coverage": "cat var/lcov.info | coveralls",
+    "coverage": "coveralls --file=var/lcov.info",
     "prepublish": "gulp build",
-    "test": "gulp test"
+    "test": "nyc --report-dir=var --reporter=lcovonly mocha --compilers=js:babel-register"
   }
 }
