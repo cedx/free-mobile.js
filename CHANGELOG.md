@@ -2,6 +2,7 @@
 This file contains highlights of what changes on each version of the [Free Mobile for JS](https://github.com/cedx/free-mobile.js) library.
 
 ## Version 3.0.0
+- Breaking change: dropped the `sendMessage()` helper function.
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
 - Breaking change: using ES2017 features, like async/await functions.
 - Breaking change: renamed the `Client.DEFAULT_ENDPOINT` constant to `DEFAULT_ENDPOINT`.
