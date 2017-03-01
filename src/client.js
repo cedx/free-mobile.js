@@ -10,7 +10,7 @@ export class Client {
    * The URL of the API end point.
    * @type {string}
    */
-  static get END_POINT() {
+  static get DEFAULT_ENDPOINT() {
     return 'https://smsapi.free-mobile.fr/sendmsg';
   }
 
