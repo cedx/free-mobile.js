@@ -3,12 +3,14 @@ This file contains highlights of what changes on each version of the [Free Mobil
 
 ## Version 3.0.0
 - Breaking change: changed the constructor signature.
+- Breaking change: changed the return type of the `sendMessage()` method.
 - Breaking change: dropped the `sendMessage()` helper function.
 - Breaking change: renamed the `DEFAULT_ENDPOINT` constant to `DEFAULT_ENDPOINT`.
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
 - Breaking change: using ES2017 features, like async/await functions.
 - Added the `Client.endPoint` property.
 - Improved the build system.
+- Ported the unit test assertions from [TDD](https://en.wikipedia.org/wiki/Test-driven_development) to [BDD](https://en.wikipedia.org/wiki/Behavior-driven_development).
 - Updated the package dependencies.
 
 ## Version 2.4.0

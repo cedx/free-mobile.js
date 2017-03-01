@@ -29,7 +29,7 @@ let client = new Client({
   password: 'your Free Mobile identification key'
 });
 
-client.sendMessage('Hello World!').subscribe(
+client.sendMessage('Hello World!').then(
   () => console.log('The message was sent successfully.'),
   error => console.log(`An error occurred: ${error}`)
 );
@@ -43,7 +43,7 @@ There is also a convenient `sendMessage()` function:
 const {sendMessage} = require('@cedx/free-mobile');
 
 let credentials = {username: 'your user name', password: 'your identification key'};
-sendMessage('Hello World!', credentials).subscribe(
+sendMessage('Hello World!', credentials).then(
   () => console.log('The message was sent successfully.')
 );
 ```

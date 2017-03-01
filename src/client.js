@@ -72,19 +72,19 @@ export class Client {
   /**
    * Sends a SMS message to the underlying account.
    * @param {string} text The text of the message to send.
-   * @return {Observable<string>} The response as string.
+   * @return {Promise<string>} The response as string.
    * @emits {superagent.Request} The "request" event.
    * @emits {superagent.Response} The "response" event.
    */
   sendMessage(text) {
     if (!this.username.length || !this.password.length)
-      return Observable.throw(new Error('The account credentials are invalid.'));
+      return Promise.throw(new Error('The account credentials are invalid.'));
 
     let message = text.trim();
-    if (!message.length) return Observable.throw(new Error('The specified message is empty.'));
+    if (!message.length) return Promise.throw(new Error('The specified message is empty.'));
 
-    return Observable.create(observer => {
-      let req = superagent.get(Client.END_POINT).query({
+    return Promise.create(observer => {
+      let req = superagent.get(`${this.endPoint}/sendmsg`).query({
         msg: message.substr(0, 160),
         pass: this.password,
         user: this.username

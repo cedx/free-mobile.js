@@ -36,19 +36,19 @@ describe('Client', function() {
    * @test {Client#sendMessage}
    */
   describe('#sendMessage()', () => {
-    it('should return an Observable', () => {
-      assert.ok(new Client().sendMessage('') instanceof Observable);
+    it('should return a `Promise`', () => {
+      assert.ok(new Client().sendMessage('') instanceof Promise);
     });
 
     it('should not send valid messages with invalid credentials', done => {
-      new Client().sendMessage('Hello World!').subscribe(
+      new Client().sendMessage('Hello World!').then(
         () => done(new Error('The credentials are invalid.')),
         () => done()
       );
     });
 
     it('should not send invalid messages with valid credentials', done => {
-      new Client({password: 'secret', username: 'anonymous'}).sendMessage('').subscribe(
+      new Client({password: 'secret', username: 'anonymous'}).sendMessage('').then(
         () => done(new Error('The message is empty.')),
         () => done()
       );
@@ -58,7 +58,7 @@ describe('Client', function() {
       it('should send valid messages with valid credentials', done => {
         new Client({password: process.env.FREEMOBILE_PASSWORD, username: process.env.FREEMOBILE_USERNAME})
           .sendMessage('Bonjour Cédric !')
-          .subscribe(null, done, done);
+          .then(null, done, done);
       });
   });
 
@@ -66,7 +66,7 @@ describe('Client', function() {
    * @test {Client#toJSON}
    */
   describe('#toJSON()', () => {
-    it('should return an object instance with the same public values', () => {
+    it('should return a map with the same public values', () => {
       let data = new Client({password: 'secret', username: 'anonymous'}).toJSON();
       assert.equal(data.constructor.name, 'Object');
       assert.equal(Object.keys(data).length, 2);
@@ -81,11 +81,12 @@ describe('Client', function() {
   describe('#toString()', () => {
     let client = String(new Client({password: 'secret', username: 'anonymous'}));
 
-    it('should start with the class name of the client', () => {
+    it('should start with the class name', () => {
       assert.equal(client.indexOf('Client {'), 0);
     });
 
-    it('should contain the properties of the client', () => {
+    it('should contain the instance properties', () => {
+      assert.ok(client.indexOf('"endPoint":"secret"') > 0);
       assert.ok(client.indexOf('"password":"secret"') > 0);
       assert.ok(client.indexOf('"username":"anonymous"') > 0);
     });
