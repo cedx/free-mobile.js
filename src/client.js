@@ -11,26 +11,34 @@ export class Client {
    * @type {string}
    */
   static get DEFAULT_ENDPOINT() {
-    return 'https://smsapi.free-mobile.fr/sendmsg';
+    return 'https://smsapi.free-mobile.fr';
   }
 
   /**
    * Initializes a new instance of the class.
-   * @param {object} [options] An object specifying values used to initialize this instance.
+   * @param {string} [username] The user name associated to the account.
+   * @param {string} [password] The identification key associated to the account.
+   * @param {string} [endPoint] The URL of the API end point.
    */
-  constructor(options = {}) {
+  constructor(username = '', password = '', endPoint = Client.DEFAULT_ENDPOINT) {
+
+    /**
+     * The URL of the API end point.
+     * @type {string}
+     */
+    this.endPoint = endPoint;
 
     /**
      * The identification key associated to the account.
      * @type {string}
      */
-    this.password = typeof options.password == 'string' ? options.password : '';
+    this.password = password;
 
     /**
      * The user name associated to the account.
      * @type {string}
      */
-    this.username = typeof options.username == 'string' ? options.username : '';
+    this.username = username;
 
     /**
      * The handler of "request" events.

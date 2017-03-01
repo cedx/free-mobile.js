@@ -11,21 +11,6 @@ describe('Client', function() {
   this.timeout(15000);
 
   /**
-   * @test {Client#constructor}
-   */
-  describe('#constructor()', () => {
-    it('should initialize the existing properties', () => {
-      let client = new Client({password: 'secret', username: 'anonymous'});
-      assert.equal(client.password, 'secret');
-      assert.equal(client.username, 'anonymous');
-    });
-
-    it('should not create new properties', () => {
-      assert.ok(!('foo' in new Client({foo: 'bar'})));
-    });
-  });
-
-  /**
    * @test {Client#onRequest}
    */
   describe('#onRequest', () => {
