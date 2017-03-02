@@ -37,13 +37,25 @@ describe('Client', function() {
    */
   describe('#sendMessage()', () => {
     it('should not send valid messages with invalid credentials', async () => {
-      try { await new Client().sendMessage('Hello World!'); }
-      catch (e) { expect(true).to.be.ok; }
+      try {
+        await new Client().sendMessage('Hello World!');
+        expect(true).to.not.be.ok;
+      }
+
+      catch (err) {
+        expect(true).to.be.ok;
+      }
     });
 
     it('should not send invalid messages with valid credentials', async () => {
-      try { await new Client('anonymous', 'secret').sendMessage(''); }
-      catch (e) { expect(true).to.be.ok; }
+      try {
+        await new Client('anonymous', 'secret').sendMessage('');
+        expect(true).to.not.be.ok;
+      }
+
+      catch (err) {
+        expect(true).to.be.ok;
+      }
     });
 
     if ('FREEMOBILE_USERNAME' in process.env && 'FREEMOBILE_PASSWORD' in process.env)
