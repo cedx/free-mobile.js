@@ -17,8 +17,6 @@ $ npm install --save @cedx/free-mobile
 ```
 
 ## Usage
-This package has an API based on [Observables](http://reactivex.io/intro.html).
-
 It provides a single class, `Client`, which allow to send messages to your mobile phone by using the `sendMessage()` method:
 
 ```javascript
@@ -64,14 +62,6 @@ client.onRequest.subscribe(
 client.onResponse.subscribe(
   response => console.log(`Server response: ${response.statusCode}`)
 );
-```
-
-## Promise support
-If you require it, an `Observable` can be converted to a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) by using the `toPromise()` method:
-
-```javascript
-let promise = client.sendMessage('Hello World!').toPromise();
-promise.then(() => console.log('The message was sent successfully.'));
 ```
 
 ## Unit tests

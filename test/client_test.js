@@ -1,6 +1,6 @@
 'use strict';
 
-import assert from 'assert';
+import {expect} from 'chai';
 import {Client} from '../src/index';
 import {Observable, Subject} from 'rxjs';
 
@@ -14,10 +14,10 @@ describe('Client', function() {
    * @test {Client#onRequest}
    */
   describe('#onRequest', () => {
-    it('should return an Observable instead of the underlying Subject', () => {
+    it('should return an `Observable` instead of the underlying `Subject`', () => {
       let stream = new Client().onRequest;
-      assert.ok(stream instanceof Observable);
-      assert.ok(!(stream instanceof Subject));
+      expect(stream).to.be.instanceof(Observable);
+      expect(stream).to.not.be.instanceof(Subject);
     });
   });
 
@@ -25,10 +25,10 @@ describe('Client', function() {
    * @test {Client#onResponse}
    */
   describe('#onResponse', () => {
-    it('should return an Observable instead of the underlying Subject', () => {
+    it('should return an `Observable` instead of the underlying `Subject`', () => {
       let stream = new Client().onResponse;
-      assert.ok(stream instanceof Observable);
-      assert.ok(!(stream instanceof Subject));
+      expect(stream).to.be.instanceof(Observable);
+      expect(stream).to.not.be.instanceof(Subject);
     });
   });
 
@@ -36,29 +36,20 @@ describe('Client', function() {
    * @test {Client#sendMessage}
    */
   describe('#sendMessage()', () => {
-    it('should return a `Promise`', () => {
-      assert.ok(new Client().sendMessage('') instanceof Promise);
+    it('should not send valid messages with invalid credentials', async () => {
+      try { await new Client().sendMessage('Hello World!'); }
+      catch (e) { expect(true).to.be.ok; }
     });
 
-    it('should not send valid messages with invalid credentials', done => {
-      new Client().sendMessage('Hello World!').then(
-        () => done(new Error('The credentials are invalid.')),
-        () => done()
-      );
-    });
-
-    it('should not send invalid messages with valid credentials', done => {
-      new Client({password: 'secret', username: 'anonymous'}).sendMessage('').then(
-        () => done(new Error('The message is empty.')),
-        () => done()
-      );
+    it('should not send invalid messages with valid credentials', async () => {
+      try { await new Client('anonymous', 'secret').sendMessage(''); }
+      catch (e) { expect(true).to.be.ok; }
     });
 
     if ('FREEMOBILE_USERNAME' in process.env && 'FREEMOBILE_PASSWORD' in process.env)
-      it('should send valid messages with valid credentials', done => {
-        new Client({password: process.env.FREEMOBILE_PASSWORD, username: process.env.FREEMOBILE_USERNAME})
-          .sendMessage('Bonjour Cédric !')
-          .then(null, done, done);
+      it('should send valid messages with valid credentials', async () => {
+        await new Client(process.env.FREEMOBILE_USERNAME, process.env.FREEMOBILE_PASSWORD).sendMessage('Bonjour Cédric !');
+        expect(true).to.be.ok;
       });
   });
 
@@ -67,11 +58,11 @@ describe('Client', function() {
    */
   describe('#toJSON()', () => {
     it('should return a map with the same public values', () => {
-      let data = new Client({password: 'secret', username: 'anonymous'}).toJSON();
-      assert.equal(data.constructor.name, 'Object');
-      assert.equal(Object.keys(data).length, 2);
-      assert.equal(data.password, 'secret');
-      assert.equal(data.username, 'anonymous');
+      let data = new Client('anonymous', 'secret').toJSON();
+      expect(Object.keys(data)).to.have.lengthOf(3);
+      expect(data.endPoint).to.equal(Client.DEFAULT_ENDPOINT);
+      expect(data.password).to.equal('secret');
+      expect(data.username).to.equal('anonymous');
     });
   });
 
@@ -79,16 +70,15 @@ describe('Client', function() {
    * @test {Client#toString}
    */
   describe('#toString()', () => {
-    let client = String(new Client({password: 'secret', username: 'anonymous'}));
+    let client = String(new Client('anonymous', 'secret'));
 
     it('should start with the class name', () => {
-      assert.equal(client.indexOf('Client {'), 0);
+      expect(client.indexOf('Client {')).to.equal(0);
     });
 
     it('should contain the instance properties', () => {
-      assert.ok(client.indexOf('"endPoint":"secret"') > 0);
-      assert.ok(client.indexOf('"password":"secret"') > 0);
-      assert.ok(client.indexOf('"username":"anonymous"') > 0);
+      expect(client).to.contain('"password":"secret"');
+      expect(client).to.contain('"username":"anonymous"');
     });
   });
 });

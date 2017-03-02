@@ -1,4 +1,4 @@
-import {Observable, Subject} from 'rxjs';
+import {Subject} from 'rxjs';
 import superagent from 'superagent';
 
 /**
@@ -7,7 +7,7 @@ import superagent from 'superagent';
 export class Client {
 
   /**
-   * The URL of the API end point.
+   * The URL of the default API end point.
    * @type {string}
    */
   static get DEFAULT_ENDPOINT() {
@@ -72,34 +72,29 @@ export class Client {
   /**
    * Sends a SMS message to the underlying account.
    * @param {string} text The text of the message to send.
-   * @return {Promise<string>} The response as string.
+   * @return {Promise} Completes when the operation is done.
+   * @throws {Error} The account credentials are invalid, or the specified message is empty.
    * @emits {superagent.Request} The "request" event.
    * @emits {superagent.Response} The "response" event.
    */
-  sendMessage(text) {
-    if (!this.username.length || !this.password.length)
-      return Promise.throw(new Error('The account credentials are invalid.'));
+  async sendMessage(text) {
+    if (!this.username.length || !this.password.length) throw new Error('The account credentials are invalid.');
 
     let message = text.trim();
-    if (!message.length) return Promise.throw(new Error('The specified message is empty.'));
+    if (!message.length) throw new Error('The specified message is empty.');
 
-    return Promise.create(observer => {
-      let req = superagent.get(`${this.endPoint}/sendmsg`).query({
-        msg: message.substr(0, 160),
-        pass: this.password,
-        user: this.username
-      });
-
-      this._onRequest.next(req);
-      req.end((err, res) => {
-        if (err) observer.error(err);
-        else {
-          this._onResponse.next(res);
-          observer.next(res.text);
-          observer.complete();
-        }
-      });
+    let request = superagent.get(`${this.endPoint}/sendmsg`).query({
+      msg: message.substr(0, 160),
+      pass: this.password,
+      user: this.username
     });
+
+    this._onRequest.next(request);
+    let response = await request;
+    this._onResponse.next(response);
+
+    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
+    return null;
   }
 
   /**
@@ -108,6 +103,7 @@ export class Client {
    */
   toJSON() {
     return {
+      endPoint: this.endPoint,
       password: this.password,
       username: this.username
     };
