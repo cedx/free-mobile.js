@@ -22,29 +22,18 @@ It provides a single class, `Client`, which allow to send messages to your mobil
 ```javascript
 const {Client} = require('@cedx/free-mobile');
 
-let client = new Client({
-  username: 'your Free Mobile user name',
-  password: 'your Free Mobile identification key'
-});
+try {
+  let client = new Client('your user name', 'your identification key');
+  await client.sendMessage('Hello World!');
+  console.log('The message was sent successfully.');
+}
 
-client.sendMessage('Hello World!').then(
-  () => console.log('The message was sent successfully.'),
-  error => console.log(`An error occurred: ${error}`)
-);
+catch (error) {
+  console.log(`An error occurred: ${error}`);
+}
 ```
 
 The text of the messages will be automatically truncated to 160 characters: you can't send multipart messages using this library.
-
-There is also a convenient `sendMessage()` function:
-
-```javascript
-const {sendMessage} = require('@cedx/free-mobile');
-
-let credentials = {username: 'your user name', password: 'your identification key'};
-sendMessage('Hello World!', credentials).then(
-  () => console.log('The message was sent successfully.')
-);
-```
 
 ## Events
 The `Client` class triggers some events during its life cycle:
@@ -52,7 +41,7 @@ The `Client` class triggers some events during its life cycle:
 - `request` : emitted every time a request is made to the remote service.
 - `response` : emitted every time a response is received from the remote service.
 
-These events are exposed as `Observable`, you can subscribe to them using the `on<EventName>` properties:
+These events are exposed as [Observables](http://reactivex.io/intro.html), you can subscribe to them using the `on<EventName>` properties:
 
 ```javascript
 client.onRequest.subscribe(
