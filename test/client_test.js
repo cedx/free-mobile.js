@@ -77,8 +77,7 @@ describe('Client', function() {
     });
 
     it('should contain the instance properties', () => {
-      expect(client).to.contain('"password":"secret"');
-      expect(client).to.contain('"username":"anonymous"');
+      expect(client).to.contain('"password":"secret"').and.contain('"username":"anonymous"');
     });
   });
 });
