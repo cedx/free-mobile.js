@@ -73,7 +73,6 @@ export class Client {
    * Sends a SMS message to the underlying account.
    * @param {string} text The text of the message to send.
    * @return {Promise} Completes when the operation is done.
-   * @throws {Error} The account credentials are invalid, or the specified message is empty.
    * @emits {superagent.Request} The "request" event.
    * @emits {superagent.Response} The "response" event.
    */
