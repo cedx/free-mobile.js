@@ -85,7 +85,7 @@ describe('Client', function() {
     let client = String(new Client('anonymous', 'secret'));
 
     it('should start with the class name', () => {
-      expect(client.indexOf('Client {')).to.equal(0);
+      expect(client.startsWith('Client {')).to.be.true;
     });
 
     it('should contain the instance properties', () => {
