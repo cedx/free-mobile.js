@@ -1,6 +1,9 @@
 # Changelog
 This file contains highlights of what changes on each version of the [Free Mobile for JS](https://github.com/cedx/free-mobile.js) library.
 
+## Version 3.1.0
+- Updated the package dependencies.
+
 ## Version 3.0.0
 - Breaking change: changed the constructor signature.
 - Breaking change: changed the return type of the `sendMessage()` method.
