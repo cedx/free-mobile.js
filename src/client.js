@@ -1,9 +1,10 @@
+import EventEmitter from 'events';
 import superagent from 'superagent';
 
 /**
  * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
  */
-export class Client {
+export class Client extends EventEmitter {
 
   /**
    * The URL of the default API end point.
@@ -20,6 +21,7 @@ export class Client {
    * @param {string} [endPoint] The URL of the API end point.
    */
   constructor(username = '', password = '', endPoint = Client.DEFAULT_ENDPOINT) {
+    super();
 
     /**
      * The URL of the API end point.
@@ -59,9 +61,9 @@ export class Client {
       user: this.username
     });
 
-    this._onRequest.next(request);
+    this.emit('request', request);
     let response = await request;
-    this._onResponse.next(response);
+    this.emit('response', response);
 
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
     return null;

@@ -3,6 +3,7 @@ This file contains highlights of what changes on each version of the [Free Mobil
 
 ## Version 4.0.0
 - Breaking change: dropped the dependency on [Observables](http://reactivex.io/intro.html).
+- Breaking change: the `Client` class is now an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ## Version 3.1.0
 - Updated the package dependencies.
