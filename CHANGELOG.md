@@ -2,6 +2,7 @@
 This file contains highlights of what changes on each version of the [Free Mobile for JS](https://github.com/cedx/free-mobile.js) library.
 
 ## Version 4.0.0
+- Breaking change: dropped the dependency on [Observables](http://reactivex.io/intro.html).
 
 ## Version 3.1.0
 - Updated the package dependencies.

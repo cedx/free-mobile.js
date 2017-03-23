@@ -2,35 +2,12 @@
 
 import {expect} from 'chai';
 import {Client} from '../src/index';
-import {Observable, Subject} from 'rxjs';
 
 /**
  * @test {Client}
  */
 describe('Client', function() {
   this.timeout(15000);
-
-  /**
-   * @test {Client#onRequest}
-   */
-  describe('#onRequest', () => {
-    it('should return an `Observable` instead of the underlying `Subject`', () => {
-      let stream = new Client().onRequest;
-      expect(stream).to.be.instanceof(Observable);
-      expect(stream).to.not.be.instanceof(Subject);
-    });
-  });
-
-  /**
-   * @test {Client#onResponse}
-   */
-  describe('#onResponse', () => {
-    it('should return an `Observable` instead of the underlying `Subject`', () => {
-      let stream = new Client().onResponse;
-      expect(stream).to.be.instanceof(Observable);
-      expect(stream).to.not.be.instanceof(Subject);
-    });
-  });
 
   /**
    * @test {Client#sendMessage}
