@@ -1,6 +1,9 @@
 # Changelog
 This file contains highlights of what changes on each version of the [Free Mobile for JS](https://github.com/cedx/free-mobile.js) library.
 
+## Version 5.0.0
+- Updated the package dependencies.
+
 ## Version 4.1.0
 - Added support for the [Node Security Platform](https://nodesecurity.io) reports.
 - Updated the package dependencies.
