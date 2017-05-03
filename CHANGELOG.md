@@ -3,6 +3,7 @@ This file contains highlights of what changes on each version of the [Free Mobil
 
 ## Version 5.0.0
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
+- Breaking change: the `Client#endPoint` property is now an instance of the [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) class.
 - Updated the package dependencies.
 
 ## Version 4.1.0

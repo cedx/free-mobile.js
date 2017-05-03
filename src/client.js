@@ -1,5 +1,6 @@
 import EventEmitter from 'events';
 import superagent from 'superagent';
+import {URL} from 'url';
 
 /**
  * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
@@ -8,26 +9,26 @@ export class Client extends EventEmitter {
 
   /**
    * The URL of the default API end point.
-   * @type {string}
+   * @type {URL}
    */
   static get DEFAULT_ENDPOINT() {
-    return 'https://smsapi.free-mobile.fr';
+    return new URL('https://smsapi.free-mobile.fr');
   }
 
   /**
    * Initializes a new instance of the class.
    * @param {string} [username] The user name associated to the account.
    * @param {string} [password] The identification key associated to the account.
-   * @param {string} [endPoint] The URL of the API end point.
+   * @param {string|URL} [endPoint] The URL of the API end point.
    */
   constructor(username = '', password = '', endPoint = Client.DEFAULT_ENDPOINT) {
     super();
 
     /**
      * The URL of the API end point.
-     * @type {string}
+     * @type {URL}
      */
-    this.endPoint = endPoint;
+    this.endPoint = typeof endPoint == 'string' ? new URL(endPoint) : endPoint;
 
     /**
      * The identification key associated to the account.
@@ -55,7 +56,7 @@ export class Client extends EventEmitter {
     let message = text.trim();
     if (!message.length) throw new Error('The specified message is empty.');
 
-    let request = superagent.get(`${this.endPoint}/sendmsg`).query({
+    let request = superagent.get(new URL('/sendmsg', this.endPoint).href).query({
       msg: message.substr(0, 160),
       pass: this.password,
       user: this.username
@@ -75,7 +76,7 @@ export class Client extends EventEmitter {
    */
   toJSON() {
     return {
-      endPoint: this.endPoint,
+      endPoint: this.endPoint ? this.endPoint.href : null,
       password: this.password,
       username: this.username
     };

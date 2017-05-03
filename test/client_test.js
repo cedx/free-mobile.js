@@ -50,7 +50,7 @@ describe('Client', function() {
     it('should return a map with the same public values', () => {
       let data = new Client('anonymous', 'secret').toJSON();
       expect(Object.keys(data)).to.have.lengthOf(3);
-      expect(data.endPoint).to.equal(Client.DEFAULT_ENDPOINT);
+      expect(data.endPoint).to.equal(Client.DEFAULT_ENDPOINT.href);
       expect(data.password).to.equal('secret');
       expect(data.username).to.equal('anonymous');
     });
