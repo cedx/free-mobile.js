@@ -56,7 +56,7 @@ export class Client extends EventEmitter {
     let message = text.trim();
     if (!message.length) throw new Error('The specified message is empty.');
 
-    let request = superagent.get(new URL('/sendmsg', this.endPoint).href).query({
+    let request = superagent.get(new URL('sendmsg', this.endPoint).href).query({
       msg: message.substr(0, 160),
       pass: this.password,
       user: this.username
