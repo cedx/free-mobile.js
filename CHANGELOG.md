@@ -2,6 +2,7 @@
 This file contains highlights of what changes on each version of the [Free Mobile for JS](https://github.com/cedx/free-mobile.js) library.
 
 ## Version 5.0.0
+- Breaking change: raised the required [Node.js](https://nodejs.org) version.
 - Updated the package dependencies.
 
 ## Version 4.1.0
