@@ -16,7 +16,7 @@ describe('Client', function() {
   describe('#sendMessage()', () => {
     it('should not send valid messages with invalid credentials', async () => {
       try {
-        await new Client().sendMessage('Hello World!');
+        await (new Client).sendMessage('Hello World!');
         expect(true).to.not.be.ok;
       }
 
