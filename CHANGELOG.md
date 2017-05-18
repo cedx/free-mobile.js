@@ -1,6 +1,10 @@
 # Changelog
 This file contains highlights of what changes on each version of the [Free Mobile for JS](https://github.com/cedx/free-mobile.js) library.
 
+## Version 5.0.1
+- Fixed a code generation bug.
+- Updated the package dependencies.
+
 ## Version 5.0.0
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
 - Breaking change: the `Client#endPoint` property is now an instance of the [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) class.
