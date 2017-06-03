@@ -67,7 +67,7 @@ export class Client extends EventEmitter {
     this.emit('response', response);
 
     if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-    return null;
+    return response.body;
   }
 
   /**
