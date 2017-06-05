@@ -1,17 +1,14 @@
 {
-  "description": "Send SMS messages to your Free Mobile account.",
-  "homepage": "https://github.com/cedx/free-mobile.js",
-  "name": "@cedx/free-mobile",
-
   "author": "Cédric Belin <cedric@belin.io>",
   "bugs": "https://github.com/cedx/free-mobile.js/issues",
+  "description": "Send SMS messages to your Free Mobile account.",
+  "homepage": "https://github.com/cedx/free-mobile.js",
   "license": "Apache-2.0",
-  "repository": "cedx/free-mobile.js",
-  "version": "5.0.1",
-
   "main": "./lib/index",
   "module": "./src/index",
-
+  "name": "@cedx/free-mobile",
+  "repository": "cedx/free-mobile.js",
+  "version": "5.0.1",
   "dependencies": {
     "superagent": "^3.5.2"
   },
