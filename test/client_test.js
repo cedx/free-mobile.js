@@ -2,6 +2,7 @@
 
 import {expect} from 'chai';
 import {describe, it} from 'mocha';
+import {Observable, Subject} from 'rxjs';
 import {Client} from '../src/index';
 
 /**
