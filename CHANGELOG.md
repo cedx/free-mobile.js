@@ -1,6 +1,11 @@
 # Changelog
 This file contains highlights of what changes on each version of the [Free Mobile for JS](https://github.com/cedx/free-mobile.js) library.
 
+## Version 6.0.0
+- Breaking change: reverted the API of the `Client` class to an [Observable](http://reactivex.io/intro.html)-based one.
+- Added new test cases.
+- Updated the package dependencies.
+
 ## Version 5.0.1
 - Fixed a code generation bug.
 - Updated the package dependencies.
