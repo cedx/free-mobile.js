@@ -14,32 +14,25 @@ describe('Client', function() {
    * @test {Client#sendMessage}
    */
   describe('#sendMessage()', () => {
-    it('should not send valid messages with invalid credentials', async () => {
-      try {
-        await (new Client).sendMessage('Hello World!');
-        expect(true).to.not.be.ok;
-      }
-
-      catch (err) {
-        expect(true).to.be.ok;
-      }
+    it('should not send valid messages with invalid credentials', done => {
+      (new Client).sendMessage('Hello World!').subscribe({
+        complete: () => done(new Error('Error not thrown.')),
+        error: () => done()
+      });
     });
 
-    it('should not send invalid messages with valid credentials', async () => {
-      try {
-        await new Client('anonymous', 'secret').sendMessage('');
-        expect(true).to.not.be.ok;
-      }
-
-      catch (err) {
-        expect(true).to.be.ok;
-      }
+    it('should not send invalid messages with valid credentials', done => {
+      new Client('anonymous', 'secret').sendMessage('').subscribe({
+        complete: () => done(new Error('Error not thrown.')),
+        error: () => done()
+      });
     });
 
     if ('FREEMOBILE_USERNAME' in process.env && 'FREEMOBILE_PASSWORD' in process.env)
-      it('should send valid messages with valid credentials', async () => {
-        await new Client(process.env.FREEMOBILE_USERNAME, process.env.FREEMOBILE_PASSWORD).sendMessage('Bonjour Cédric !');
-        expect(true).to.be.ok;
+      it('should send valid messages with valid credentials', done => {
+        let username = process.env.FREEMOBILE_USERNAME;
+        let password = process.env.FREEMOBILE_PASSWORD;
+        new Client(username, password).sendMessage('Bonjour Cédric !').subscribe(null, done, done);
       });
   });
 
