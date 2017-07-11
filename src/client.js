@@ -1,11 +1,11 @@
-import EventEmitter from 'events';
+import {Observable, Subject} from 'rxjs';
 import superagent from 'superagent';
 import {URL} from 'url';
 
 /**
  * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
  */
-export class Client extends EventEmitter {
+export class Client {
 
   /**
    * The URL of the default API end point.
@@ -22,7 +22,6 @@ export class Client extends EventEmitter {
    * @param {string|URL} [endPoint] The URL of the API end point.
    */
   constructor(username = '', password = '', endPoint = Client.DEFAULT_ENDPOINT) {
-    super();
 
     /**
      * The URL of the API end point.
@@ -41,33 +40,61 @@ export class Client extends EventEmitter {
      * @type {string}
      */
     this.username = username;
+
+    /**
+     * The handler of "request" events.
+     * @type {Subject<superagent.Request>}
+     */
+    this._onRequest = new Subject();
+
+    /**
+     * The handler of "response" events.
+     * @type {Subject<superagent.Response>}
+     */
+    this._onResponse = new Subject();
+  }
+
+  /**
+   * The stream of "request" events.
+   * @type {Observable<superagent.Request>}
+   */
+  get onRequest() {
+    return this._onRequest.asObservable();
+  }
+
+  /**
+   * The stream of "response" events.
+   * @type {Observable<superagent.Response>}
+   */
+  get onResponse() {
+    return this._onResponse.asObservable();
   }
 
   /**
    * Sends a SMS message to the underlying account.
    * @param {string} text The text of the message to send.
-   * @return {Promise} Completes when the operation is done.
+   * @return {Observable} Completes when the operation is done.
    * @emits {superagent.Request} The "request" event.
    * @emits {superagent.Response} The "response" event.
    */
-  async sendMessage(text) {
-    if (!this.username.length || !this.password.length) throw new Error('The account credentials are invalid.');
+  sendMessage(text) {
+    if (!this.username.length || !this.password.length)
+      return Observable.throw(new Error('The account credentials are invalid.'));
 
     let message = text.trim();
-    if (!message.length) throw new Error('The specified message is empty.');
+    if (!message.length) return Observable.throw(new Error('The specified message is empty.'));
 
-    let request = superagent.get(new URL('sendmsg', this.endPoint).href).query({
+    let req = superagent.get(new URL('sendmsg', this.endPoint).href).query({
       msg: message.substr(0, 160),
       pass: this.password,
       user: this.username
     });
 
-    this.emit('request', request);
-    let response = await request;
-    this.emit('response', response);
-
-    if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
-    return response.body;
+    this._onRequest.next(req);
+    return Observable.from(req).map(res => {
+      this._onResponse.next(res);
+      return res.ok ? res.text : Observable.throw(new Error(`${res.status} ${res.statusText}`));
+    });
   }
 
   /**
