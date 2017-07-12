@@ -55,7 +55,7 @@ describe('Client', function() {
       it('should send valid messages with valid credentials', done => {
         let username = process.env.FREEMOBILE_USERNAME;
         let password = process.env.FREEMOBILE_PASSWORD;
-        new Client(username, password).sendMessage('Bonjour Cédric !').subscribe(null, done, done);
+        new Client(username, password).sendMessage('Bonjour Cédric !').subscribe(() => done(), done);
       });
   });
 
