@@ -51,12 +51,10 @@ describe('Client', function() {
       });
     });
 
-    if ('FREEMOBILE_USERNAME' in process.env && 'FREEMOBILE_PASSWORD' in process.env)
-      it('should send valid messages with valid credentials', done => {
-        let username = process.env.FREEMOBILE_USERNAME;
-        let password = process.env.FREEMOBILE_PASSWORD;
-        new Client(username, password).sendMessage('Bonjour Cédric !').subscribe(() => done(), done);
-      });
+    let {FREEMOBILE_USERNAME: username, FREEMOBILE_PASSWORD: password} = process.env;
+    if (username && password) it('should send valid messages with valid credentials', done => {
+      new Client(username, password).sendMessage('Bonjour Cédric !').subscribe(null, done, done);
+    });
   });
 
   /**
