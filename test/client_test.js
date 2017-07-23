@@ -1,9 +1,8 @@
 'use strict';
 
-import {expect} from 'chai';
-import {describe, it} from 'mocha';
-import {Observable, Subject} from 'rxjs';
-import {Client} from '../src/index';
+const {expect} = require('chai');
+const {Observable, Subject} = require('rxjs');
+const {Client} = require('../lib');
 
 /**
  * @test {Client}
