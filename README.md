@@ -22,7 +22,7 @@ This package has an API based on [Observables](http://reactivex.io/intro.html).
 It provides a single class, `Client`, which allow to send messages to your mobile phone by using the `sendMessage()` method:
 
 ```javascript
-import {Client} from '@cedx/free-mobile';
+const {Client} = require('@cedx/free-mobile');
 
 new Client('your user name', 'your identification key')
   .sendMessage('Hello World!')
