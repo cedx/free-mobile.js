@@ -1,15 +1,19 @@
 {
-  "title": "Free Mobile for JS",
-
   "source": "lib",
   "destination": "doc/api",
-
   "excludes": ["index\\.js$"],
-  "manual": {"changelog": ["CHANGELOG.md"]},
-  "plugins": [{"name": "esdoc-node"}],
-
-  "test": {
-    "source": "test",
-    "type": "mocha"
-  }
+  "plugins": [
+    {"name": "esdoc-node"},
+    {"name": "esdoc-standard-plugin", "option": {
+      "accessor": {"access": ["public", "protected"]},
+      "manual": {"files": ["CHANGELOG.md"]},
+      "test": {"source": "test"},
+      "brand": {
+        "description": "Send SMS messages to your Free Mobile account, in JavaScript.",
+        "logo": "web/favicon.ico",
+        "repository": "https://github.com/cedx/free-mobile.js",
+        "title": "Free Mobile for JS"
+      }
+    }}
+  ]
 }
