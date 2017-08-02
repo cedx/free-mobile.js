@@ -36,6 +36,7 @@
     "free",
     "mobile",
     "observable",
+    "reactivex",
     "rxjs",
     "sdk",
     "sms"
