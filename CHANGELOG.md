@@ -2,6 +2,8 @@
 This file contains highlights of what changes on each version of the [Free Mobile for JS](https://github.com/cedx/free-mobile.js) library.
 
 ## Version 6.2.0
+- Replaced the [SuperAgent](https://visionmedia.github.io/superagent) HTTP client by `node-fetch`.
+- Updated the package dependencies.
 
 ## Version 6.1.0
 - Removed the dependency on [Babel](https://babeljs.io) compiler.
