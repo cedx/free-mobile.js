@@ -17,44 +17,35 @@ $ npm install --save @cedx/free-mobile
 ```
 
 ## Usage
-This package has an API based on [Observables](http://reactivex.io/intro.html).
-
-It provides a single class, `Client`, which allow to send messages to your mobile phone by using the `sendMessage()` method:
+This package provides a single class, `Client`, which allow to send messages to your mobile phone by using the `sendMessage()` method:
 
 ```javascript
 const {Client} = require('@cedx/free-mobile');
 
-new Client('your user name', 'your identification key')
-  .sendMessage('Hello World!')
-  .subscribe(() => console.log('The message was sent successfully.'));
+try {
+  let client = new Client('your user name', 'your identification key');
+  await client.sendMessage('Hello World!');
+  console.log('The message was sent successfully.');
+}
+
+catch (error) {
+  console.log(`An error occurred: ${error}`);
+}
 ```
 
 The text of the messages will be automatically truncated to 160 characters: you can't send multipart messages using this library.
 
 ## Events
-The `Client` class triggers some events during its life cycle:
+The `Client` class is an [`EventEmitter`](https://nodejs.org/api/events.html) that triggers some events during its life cycle:
 
 - `request` : emitted every time a request is made to the remote service.
 - `response` : emitted every time a response is received from the remote service.
 
-These events are exposed as [Observable](http://reactivex.io/intro.html), you can subscribe to them using the `on<EventName>` properties:
+You can subscribe to them using the `on()` method:
 
 ```javascript
-client.onRequest.subscribe(request =>
-  console.log(`Client request: ${request.url}`)
-);
-
-client.onResponse.subscribe(response =>
-  console.log(`Server response: ${response.status}`)
-);
-```
-
-## Promise support
-If you require it, an `Observable` can be converted to a [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) by using the `toPromise()` method:
-
-```javascript
-await client.sendMessage('Hello World!').toPromise();
-console.log('The message was sent successfully.');
+client.on('request', request => console.log(`Client request: ${request.url}`));
+client.on('response', response => console.log(`Server response: ${response.status}`));
 ```
 
 ## Unit tests
