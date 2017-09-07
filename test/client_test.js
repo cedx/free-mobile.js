@@ -1,7 +1,6 @@
 'use strict';
 
 const {expect} = require('chai');
-const {Observable, Subject} = require('rxjs');
 const {Client} = require('../lib');
 
 /**
@@ -11,48 +10,35 @@ describe('Client', function() {
   this.timeout(15000);
 
   /**
-   * @test {Client#onRequest}
-   */
-  describe('#onRequest', () => {
-    it('should return an `Observable` instead of the underlying `Subject`', () => {
-      let stream = (new Client).onRequest;
-      expect(stream).to.be.instanceof(Observable);
-      expect(stream).to.not.be.instanceof(Subject);
-    });
-  });
-
-  /**
-   * @test {Client#onResponse}
-   */
-  describe('#onResponse', () => {
-    it('should return an `Observable` instead of the underlying `Subject`', () => {
-      let stream = (new Client).onResponse;
-      expect(stream).to.be.instanceof(Observable);
-      expect(stream).to.not.be.instanceof(Subject);
-    });
-  });
-
-  /**
    * @test {Client#sendMessage}
    */
   describe('#sendMessage()', () => {
-    it('should not send valid messages with invalid credentials', done => {
-      (new Client).sendMessage('Hello World!').subscribe({
-        complete: () => done(new Error('Error not thrown.')),
-        error: () => done()
-      });
+    it('should not send valid messages with invalid credentials', async () => {
+      try {
+        await (new Client).sendMessage('Hello World!');
+        expect(true).to.not.be.ok;
+      }
+
+      catch (err) {
+        expect(true).to.be.ok;
+      }
     });
 
-    it('should not send invalid messages with valid credentials', done => {
-      new Client('anonymous', 'secret').sendMessage('').subscribe({
-        complete: () => done(new Error('Error not thrown.')),
-        error: () => done()
-      });
+    it('should not send invalid messages with valid credentials', async () => {
+      try {
+        await new Client('anonymous', 'secret').sendMessage('');
+        expect(true).to.not.be.ok;
+      }
+
+      catch (err) {
+        expect(true).to.be.ok;
+      }
     });
 
     let {FREEMOBILE_USERNAME: username, FREEMOBILE_PASSWORD: password} = process.env;
-    if (username && password) it('should send valid messages with valid credentials', done => {
-      new Client(username, password).sendMessage('Bonjour Cédric !').subscribe(null, done, done);
+    if (username && password) it('should send valid messages with valid credentials', async () => {
+      await new Client(username, password).sendMessage('Bonjour Cédric !');
+      expect(true).to.be.ok;
     });
   });
 
