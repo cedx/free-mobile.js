@@ -10,7 +10,7 @@
       "test": {"source": "test"},
       "brand": {
         "description": "Send SMS messages to your Free Mobile account, in JavaScript.",
-        "logo": "web/favicon.ico",
+        "logo": "www/favicon.ico",
         "repository": "https://github.com/cedx/free-mobile.js",
         "title": "Free Mobile for JS"
       }
