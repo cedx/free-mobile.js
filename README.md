@@ -77,4 +77,4 @@ $ npm test
 - [Continuous integration](https://travis-ci.org/cedx/free-mobile.js)
 
 ## License
-[Free Mobile for JS](https://github.com/cedx/free-mobile.js) is distributed under the Apache License, version 2.0.
+[Free Mobile for JS](https://github.com/cedx/free-mobile.js) is distributed under the MIT License.

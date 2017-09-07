@@ -3,11 +3,11 @@
   "bugs": "https://github.com/cedx/free-mobile.js/issues",
   "description": "Send SMS messages to your Free Mobile account.",
   "homepage": "https://github.com/cedx/free-mobile.js",
-  "license": "Apache-2.0",
+  "license": "MIT",
   "main": "./lib/index",
   "name": "@cedx/free-mobile",
   "repository": "cedx/free-mobile.js",
-  "version": "6.2.0",
+  "version": "7.0.0",
   "dependencies": {
     "node-fetch": "^1.7.2",
     "rxjs": "^5.4.3"
