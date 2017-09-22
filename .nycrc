@@ -1,0 +1,6 @@
+{
+  "all": true,
+  "cache": true,
+  "report-dir": "var",
+  "reporter": ["lcovonly"]
+}

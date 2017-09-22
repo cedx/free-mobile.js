@@ -6,11 +6,13 @@
 .gitattributes text
 .gitignore text
 .npmignore text
+.nycrc text
 .travis.yml text
 
 *.js text
 *.json text
 *.md text
+*.opts text
 *.txt text
 *.yaml text
 

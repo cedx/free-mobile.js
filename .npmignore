@@ -11,6 +11,7 @@
 /.eslintrc.yaml
 /.gitattributes
 /.gitignore
+/.nycrc
 /.travis.yml
 /*.iml
 /*.js
