@@ -4,9 +4,8 @@ This file contains highlights of what changes on each version of the [Free Mobil
 ## Version [8.0.0](https://github.com/cedx/free-mobile.js/compare/v7.0.0...v8.0.0)
 - Breaking change: changed the signature of the constructor.
 - Breaking change: removed the `toJSON()` and `toString()` methods.
-- Updated the package dependencies.
-
 - Breaking change: renamed the `DEFAULT_ENDPOINT` constant to `defaultEndPoint`.
+- Updated the package dependencies.
 
 ## Version [7.0.0](https://github.com/cedx/free-mobile.js/compare/v6.2.0...v7.0.0)
 - Breaking change: converted the [`Observable`](http://reactivex.io/intro.html)-based API to an `async/await`-based one.
