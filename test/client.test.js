@@ -41,32 +41,4 @@ describe('Client', function() {
       expect(true).to.be.ok;
     });
   });
-
-  /**
-   * @test {Client#toJSON}
-   */
-  describe('#toJSON()', () => {
-    it('should return a map with the same public values', () => {
-      let data = new Client('anonymous', 'secret').toJSON();
-      expect(Object.keys(data)).to.have.lengthOf(3);
-      expect(data.endPoint).to.equal(Client.DEFAULT_ENDPOINT.href);
-      expect(data.password).to.equal('secret');
-      expect(data.username).to.equal('anonymous');
-    });
-  });
-
-  /**
-   * @test {Client#toString}
-   */
-  describe('#toString()', () => {
-    let client = String(new Client('anonymous', 'secret'));
-
-    it('should start with the class name', () => {
-      expect(client.startsWith('Client {')).to.be.true;
-    });
-
-    it('should contain the instance properties', () => {
-      expect(client).to.contain('"password":"secret"').and.contain('"username":"anonymous"');
-    });
-  });
 });
