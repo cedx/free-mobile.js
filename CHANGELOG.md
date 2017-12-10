@@ -2,6 +2,8 @@
 This file contains highlights of what changes on each version of the [Free Mobile for JS](https://github.com/cedx/free-mobile.js) library.
 
 ## Version [9.0.0](https://github.com/cedx/akismet.js/compare/v8.0.0...v9.0.0)
+- Breaking change: changed the signature of the `Client` events.
+- Updated the package dependencies.
 
 ## Version [8.0.0](https://github.com/cedx/free-mobile.js/compare/v7.0.0...v8.0.0)
 - Breaking change: changed the signature of the constructor.
