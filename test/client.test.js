@@ -1,7 +1,7 @@
 'use strict';
 
 const {expect} = require('chai');
-const {Client} = require('../lib');
+const {Client} = require('../lib/index.js');
 
 /**
  * @test {Client}
