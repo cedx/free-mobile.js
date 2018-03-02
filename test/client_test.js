@@ -1,7 +1,7 @@
 'use strict';
 
 const {expect} = require('chai');
-const {Client} = require('../lib/index.js');
+const {Client, ClientError} = require('../lib/index.js');
 
 /**
  * @test {Client}
@@ -20,7 +20,7 @@ describe('Client', function() {
       }
 
       catch (err) {
-        expect(true).to.be.ok;
+        expect(err).to.be.an.instanceof(ClientError);
       }
     });
 
@@ -31,7 +31,7 @@ describe('Client', function() {
       }
 
       catch (err) {
-        expect(true).to.be.ok;
+        expect(err).to.be.an.instanceof(ClientError);
       }
     });
 
