@@ -34,5 +34,5 @@ npm install @cedx/free-mobile
 Now in your [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) code, you can use:
 
 ```js
-const {Enum} = require('@cedx/free-mobile');
+const free_mobile = require('@cedx/free-mobile');
 ```
