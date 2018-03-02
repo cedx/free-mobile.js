@@ -10,35 +10,46 @@ describe('Client', function() {
   this.timeout(15000);
 
   /**
-   * @test {Client#sendMessage}
+   * @test {Client#constructor}
    */
-  describe('#sendMessage()', () => {
-    it('should not send valid messages with invalid credentials', async () => {
+  describe('constructor', () => {
+    it('should throw an error if the credentials are invalid', async () => {
       try {
         await new Client('', '').sendMessage('Hello World!');
         expect(true).to.not.be.ok;
       }
 
       catch (err) {
-        expect(err).to.be.an.instanceof(ClientError);
+        expect(err).to.be.an.instanceof(TypeError);
       }
     });
+  });
 
-    it('should not send invalid messages with valid credentials', async () => {
+  /**
+   * @test {Client#sendMessage}
+   */
+  describe('#sendMessage()', () => {
+    it('should not send invalid messages', async () => {
       try {
         await new Client('anonymous', 'secret').sendMessage('');
         expect(true).to.not.be.ok;
       }
 
       catch (err) {
-        expect(err).to.be.an.instanceof(ClientError);
+        expect(err).to.be.an.instanceof(TypeError);
       }
     });
 
     let {FREEMOBILE_USERNAME: username, FREEMOBILE_PASSWORD: password} = process.env;
     if (username && password) it('should send valid messages with valid credentials', async () => {
-      await new Client(username, password).sendMessage('Bonjour Cédric !');
-      expect(true).to.be.ok;
+      try {
+        await new Client(username, password).sendMessage('Bonjour Cédric !');
+        expect(true).to.be.ok;
+      }
+
+      catch (err) {
+        expect(err).to.be.an.instanceof(ClientError);
+      }
     });
   });
 });

@@ -15,15 +15,18 @@ async function main() {
     // For example: new Client('12345678', 'a9BkVohJun4MAf')
   
     await client.sendMessage('Hello World!');
-    console.log('The message was sent successfully.');
+    console.log('The message was sent successfully');
   }
 
   catch (error) {
-    // `error` is an instance of `ClientError`
-    console.log(`An error occurred: ${error.message} @ ${error.uri.href}`);
+    console.log(`An error occurred: ${error.message}`);
+    if (error instanceof ClientError) console.log(`From: ${error.uri.href}`);
   }
 }
 ```
+
+The `Client#sendMessage()` method throws a [`TypeError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
+if the account credentials are invalid or if the specified message is empty. It throws a `ClientError` if any error occurred while sending the message.
 
 !!! warning
     The text of the messages will be automatically truncated to **160** characters:  
@@ -51,12 +54,12 @@ client.on('response', (request, response) =>
 If you want to run the library tests, you must set two environment variables:
 
 ```shell
-$ export FREEMOBILE_USERNAME="your account identifier"
-$ export FREEMOBILE_PASSWORD="your API key"
+export FREEMOBILE_USERNAME="your account identifier"
+export FREEMOBILE_PASSWORD="your API key"
 ```
 
 Then, you can run the `test` script from the command prompt:
 
 ```shell
-$ npm test
+npm test
 ```
