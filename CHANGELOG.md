@@ -1,5 +1,7 @@
 # Changelog
-This file contains highlights of what changes on each version of the [Free Mobile for JS](https://github.com/cedx/free-mobile.js) library.
+
+## Version [9.1.0](https://github.com/cedx/free-mobile.js/compare/v9.0.0...v9.1.0)
+- Updated the package dependencies.
 
 ## Version [9.0.0](https://github.com/cedx/free-mobile.js/compare/v8.0.0...v9.0.0)
 - Breaking change: changed the signature of the `Client` events.

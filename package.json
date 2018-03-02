@@ -7,7 +7,7 @@
   "main": "./lib/index.js",
   "name": "@cedx/free-mobile",
   "repository": "cedx/free-mobile.js",
-  "version": "9.0.0",
+  "version": "9.1.0",
   "dependencies": {
     "node-fetch": "^2.0.0"
   },
