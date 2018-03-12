@@ -9,7 +9,7 @@
   "repository": "cedx/free-mobile.js",
   "version": "9.1.0",
   "dependencies": {
-    "node-fetch": "^2.0.0"
+    "node-fetch": "^2.1.1"
   },
   "devDependencies": {
     "@cedx/coveralls": "^5.1.0",
@@ -21,7 +21,7 @@
     "esdoc-standard-plugin": "^1.0.0",
     "gulp": "^4.0.0",
     "gulp-eslint": "^4.0.2",
-    "mocha": "^5.0.1",
+    "mocha": "^5.0.4",
     "nsp": "^3.2.1",
     "nyc": "^11.5.0"
   },
