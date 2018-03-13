@@ -16,7 +16,7 @@ describe('Client', function() {
     it('should throw an error if the credentials are invalid', async () => {
       try {
         await new Client('', '').sendMessage('Hello World!');
-        expect(true).to.not.be.ok;
+        expect.fail('Error not thrown');
       }
 
       catch (err) {
@@ -32,7 +32,7 @@ describe('Client', function() {
     it('should not send invalid messages', async () => {
       try {
         await new Client('anonymous', 'secret').sendMessage('');
-        expect(true).to.not.be.ok;
+        expect.fail('Error not thrown');
       }
 
       catch (err) {
