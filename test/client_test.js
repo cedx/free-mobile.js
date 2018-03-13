@@ -40,6 +40,17 @@ describe('Client', function() {
       }
     });
 
+    it('should throw a `ClientError` if a network error occurred', async () => {
+      try {
+        await new Client('anonymous', 'secret', 'http://localhost').sendMessage('Bonjour Cédric !');
+        expect.fail('Error not thrown');
+      }
+
+      catch (err) {
+        expect(err).to.be.an.instanceof(ClientError);
+      }
+    });
+
     let {FREEMOBILE_USERNAME: username, FREEMOBILE_PASSWORD: password} = process.env;
     if (username && password) it('should send valid messages with valid credentials', async () => {
       try {
