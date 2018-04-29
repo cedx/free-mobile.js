@@ -2,6 +2,7 @@
 
 ## Version [10.0.0](https://github.com/cedx/free-mobile.js/compare/v9.1.0...v10.0.0)
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
+- Breaking change: removed the `Client.defaultEndPoint` static property.
 - Updated the package dependencies.
 - Using the global `URL` and `URLSearchParams` classes.
 
