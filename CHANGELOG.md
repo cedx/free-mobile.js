@@ -2,6 +2,7 @@
 
 ## Version [10.0.0](https://github.com/cedx/free-mobile.js/compare/v9.1.0...v10.0.0)
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
+- Updated the package dependencies.
 
 ## Version [9.1.0](https://github.com/cedx/free-mobile.js/compare/v9.0.0...v9.1.0)
 - Added a user guide based on [MkDocs](http://www.mkdocs.org).
