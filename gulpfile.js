@@ -53,6 +53,11 @@ gulp.task('lint', () => gulp.src(['*.js', 'lib/**/*.js', 'test/**/*.js'])
 gulp.task('test', () => _exec('node_modules/.bin/nyc', [normalize('node_modules/.bin/mocha')]));
 
 /**
+ * Watches for file changes.
+ */
+gulp.task('watch', () => gulp.watch(['lib/**/*.js', 'test/**/*.js'], gulp.task('test')));
+
+/**
  * Runs the default tasks.
  */
 gulp.task('default', gulp.task('test'));
