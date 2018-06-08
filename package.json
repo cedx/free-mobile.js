@@ -2,7 +2,7 @@
   "author": "Cédric Belin <cedric@belin.io>",
   "bugs": "https://github.com/cedx/free-mobile.js/issues",
   "description": "Send SMS messages to your Free Mobile account.",
-  "homepage": "https://cedx.github.io/free-mobile.js",
+  "homepage": "https://dev.belin.io/free-mobile.js",
   "license": "MIT",
   "main": "./lib/index.js",
   "name": "@cedx/free-mobile",
