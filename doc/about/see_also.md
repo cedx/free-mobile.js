@@ -5,7 +5,7 @@
 - [npm package](https://www.npmjs.com/package/@cedx/free-mobile)
 
 ## Testing
-- [Continuous integration](https://travis-ci.org/cedx/free-mobile.js)
+- [Continuous integration](https://travis-ci.com/cedx/free-mobile.js)
 - [Code coverage](https://coveralls.io/github/cedx/free-mobile.js)
 
 ## Other implementations
