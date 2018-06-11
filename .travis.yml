@@ -1,10 +1,7 @@
 dist: trusty
-sudo: false
-
 language: node_js
 node_js: 10
-
-notifications:
-  email: false
+notifications: {email: false}
+sudo: false
 
 after_success: npm run coverage
