@@ -12,7 +12,7 @@
     "node-fetch": "^2.1.2"
   },
   "devDependencies": {
-    "@cedx/coveralls": "^5.1.0",
+    "@cedx/coveralls": "^6.0.0",
     "@cedx/gulp-david": "^11.0.0",
     "chai": "^4.1.2",
     "del": "^3.0.0",
