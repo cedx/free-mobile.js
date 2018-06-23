@@ -5,16 +5,16 @@ Before installing **Free Mobile for JS**, you need to make sure you have [Node.j
 and [npm](https://www.npmjs.com), the Node.js package manager, up and running.
 
 !!! warning
-    Free Mobile for JS requires Node.js >= **10.1.0**.
+    Free Mobile for JS requires Node.js >= **10.5.0**.
     
 You can verify if you're already good to go with the following commands:
 
 ```shell
 node --version
-# v10.1.0
+# v10.5.0
 
 npm --version
-# 5.6.0
+# 6.1.0
 ```
 
 !!! info
