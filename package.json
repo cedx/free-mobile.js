@@ -9,7 +9,7 @@
   "repository": "cedx/free-mobile.js",
   "version": "10.0.0",
   "dependencies": {
-    "node-fetch": "^2.1.2"
+    "node-fetch": "^2.2.0"
   },
   "devDependencies": {
     "@cedx/coveralls": "^6.0.0",
