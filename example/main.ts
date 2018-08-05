@@ -1,4 +1,3 @@
-/* eslint-disable no-unused-vars */
 const {Client, ClientError} = require('@cedx/free-mobile');
 
 /**
