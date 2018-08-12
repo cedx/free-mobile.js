@@ -1,4 +1,4 @@
-const {Client, ClientError} = require('@cedx/free-mobile');
+const {Client, ClientError} from '@cedx/free-mobile');
 
 /**
  * Sends an SMS notification.
