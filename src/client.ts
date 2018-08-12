@@ -1,5 +1,5 @@
-const EventEmitter = require('events');
-const fetch = require('node-fetch');
+const EventEmitter from 'events');
+const fetch from 'node-fetch');
 
 /**
  * An exception caused by an error in a `Client` request.
@@ -29,9 +29,9 @@ class ClientError extends Error {
 
   /**
    * Returns a string representation of this object.
-   * @return {string} The string representation of this object.
+   * @return The string representation of this object.
    */
-  toString() {
+  public toString(): string {
     let values = `"${this.message}"`;
     if (this.uri) values = `${values}, uri: "${this.uri.href}"`;
     return `${this.name}(${values})`;
@@ -78,7 +78,7 @@ class Client extends EventEmitter {
    * The class name.
    * @type {string}
    */
-  get [Symbol.toStringTag]() {
+  get [Symbol.toStringTag](): string {
     return 'Client';
   }
 
@@ -86,8 +86,8 @@ class Client extends EventEmitter {
    * Sends a SMS message to the underlying account.
    * @param {string} text The text of the message to send.
    * @return {Promise} Completes when the operation is done.
-   * @emits {Request} The "request" event.
-   * @emits {Response} The "response" event.
+   * @event {Request} The "request" event.
+   * @event {Response} The "response" event.
    */
   async sendMessage(text) {
     let message = text.trim();
@@ -113,7 +113,3 @@ class Client extends EventEmitter {
     return res.text();
   }
 }
-
-// Module exports.
-exports.Client = Client;
-exports.ClientError = ClientError;
