@@ -7,11 +7,11 @@ source: client.js
 **Free Mobile for JS** provides the `Client` class, which allow to send SMS messages to your mobile phone by using the `sendMessage()` method:
 
 ```ts
-const {Client, ClientError} from '@cedx/free-mobile');
+import {Client, ClientError} from '@cedx/free-mobile';
 
 async function main() {
   try {
-    let client = new Client('your account identifier', 'your API key');
+    const client = new Client('your account identifier', 'your API key');
     // For example: new Client('12345678', 'a9BkVohJun4MAf')
   
     await client.sendMessage('Hello World!');

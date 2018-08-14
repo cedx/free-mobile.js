@@ -49,7 +49,7 @@ describe('Client', function() {
       }
     });
 
-    let {FREEMOBILE_USERNAME: username, FREEMOBILE_PASSWORD: password} = process.env;
+    const {FREEMOBILE_USERNAME: username, FREEMOBILE_PASSWORD: password} = process.env;
     if (username && password) it('should send valid messages with valid credentials', async () => {
       try {
         await new Client(username, password).sendMessage('Bonjour Cédric !');
