@@ -1,5 +1,13 @@
 # Changelog
 
+## Version [10.1.0](https://github.com/cedx/free-mobile.js/compare/v10.0.0...v10.1.0)
+- Added the `eventRequest` and `eventResponse` static properties to the `Client` class.
+- Ported the source code to [TypeScript](https://www.typescriptlang.org).
+- Ported the unit tests to classes with experimental decorators.
+- Replaced [ESDoc](https://esdoc.org) documentation generator by [TypeDoc](https://typedoc.org).
+- Replaced [ESLint](https://eslint.org) static analyzer by [TSLint](https://palantir.github.io/tslint).
+- Updated the package dependencies.
+
 ## Version [10.0.0](https://github.com/cedx/free-mobile.js/compare/v9.1.0...v10.0.0)
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
 - Breaking change: removed the `Client.defaultEndPoint` static property.

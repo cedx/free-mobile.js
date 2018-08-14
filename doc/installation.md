@@ -34,5 +34,5 @@ npm install @cedx/free-mobile
 Now in your [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) or [TypeScript](https://www.typescriptlang.org) code, you can use:
 
 ```ts
-const free_mobile from '@cedx/free-mobile');
+import {Client, ClientError} from '@cedx/free-mobile';
 ```
