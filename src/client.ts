@@ -32,7 +32,7 @@ class ClientError extends Error {
    * @return The string representation of this object.
    */
   public toString(): string {
-    let values = `"${this.message}"`;
+    const values = `"${this.message}"`;
     if (this.uri) values = `${values}, uri: "${this.uri.href}"`;
     return `${this.name}(${values})`;
   }
@@ -90,20 +90,20 @@ class Client extends EventEmitter {
    * @event {Response} The "response" event.
    */
   async sendMessage(text) {
-    let message = text.trim();
+    const message = text.trim();
     if (!message.length) throw new TypeError('The specified message is empty');
 
-    let endPoint = new URL('/sendmsg', this.endPoint);
+    const endPoint = new URL('/sendmsg', this.endPoint);
     endPoint.search = new URLSearchParams({
       msg: message.substr(0, 160),
       pass: this.password,
       user: this.username
     });
 
-    let req = new fetch.Request(endPoint.href);
+    const req = new fetch.Request(endPoint.href);
     this.emit('request', req);
 
-    let res;
+    const res;
     try { res = await fetch(req); }
     catch (err) { throw new ClientError(err.message, endPoint); }
 

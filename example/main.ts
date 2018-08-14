@@ -1,11 +1,14 @@
-const {Client, ClientError} from '@cedx/free-mobile');
+/* tslint:disable: no-console */
+
+// @ts-ignore
+import {Client, ClientError} from '@cedx/free-mobile';
 
 /**
  * Sends an SMS notification.
  */
 async function main() {
   try {
-    let client = new Client('your account identifier', 'your API key');
+    const client = new Client('your account identifier', 'your API key');
     // For example: new Client('12345678', 'a9BkVohJun4MAf')
 
     await client.sendMessage('Hello World!');
