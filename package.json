@@ -8,7 +8,7 @@
   "name": "@cedx/free-mobile",
   "repository": "cedx/free-mobile.js",
   "types": "./lib/index.d.ts",
-  "version": "10.0.0",
+  "version": "10.1.0",
   "dependencies": {
     "node-fetch": "^2.2.0"
   },
