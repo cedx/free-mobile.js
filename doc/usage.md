@@ -1,5 +1,5 @@
-path: blob/master/lib
-source: client.js
+path: blob/master
+source: src/client.ts
 
 # Usage
 
@@ -20,7 +20,7 @@ async function main() {
 
   catch (error) {
     console.log(`An error occurred: ${error.message}`);
-    if (error instanceof ClientError) console.log(`From: ${error.uri.href}`);
+    if (error instanceof ClientError) console.log(`From: ${error.uri}`);
   }
 }
 ```
