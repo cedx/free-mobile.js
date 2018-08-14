@@ -1,29 +1,92 @@
-const EventEmitter from 'events');
-const fetch from 'node-fetch');
+import {EventEmitter} from 'events';
+import fetch, {Request, Response} from 'node-fetch';
+
+/**
+ * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
+ */
+export class Client extends EventEmitter {
+
+  /**
+   * An event that is triggered when a request is made to the remote service.
+   * @event request
+   */
+  public static readonly eventRequest: string = 'request';
+
+  /**
+   * An event that is triggered when a response is received from the remote service.
+   * @event response
+   */
+  public static readonly eventResponse: string = 'response';
+
+  /**
+   * The URL of the API end point.
+   */
+  public endPoint: URL;
+
+  /**
+   * Creates a new client.
+   * @param username The user name associated to the account.
+   * @param password The identification key associated to the account.
+   * @param endPoint The URL of the API end point.
+   * @throws {TypeError} The account credentials are invalid.
+   */
+  constructor(public username: string, public password: string, endPoint: string | URL = 'https://smsapi.free-mobile.fr') {
+    super();
+    this.endPoint = typeof endPoint == 'string' ? new URL(endPoint) : endPoint;
+    if (!this.password.length || !this.username.length) throw new TypeError('The account credentials are invalid.');
+  }
+
+  /**
+   * The class name.
+   */
+  get [Symbol.toStringTag](): string {
+    return 'Client';
+  }
+
+  /**
+   * Sends a SMS message to the underlying account.
+   * @param text The text of the message to send.
+   * @return Completes when the operation is done.
+   */
+  public async sendMessage(text: string): Promise<void> {
+    const message = text.trim();
+    if (!message.length) throw new TypeError('The specified message is empty.');
+
+    const url = new URL('sendmsg', this.endPoint);
+    url.searchParams.set('msg', message.substr(0, 160));
+    url.searchParams.set('pass', this.password);
+    url.searchParams.set('user', this.username);
+
+    const req = new Request(url.href);
+    this.emit(Client.eventRequest, req);
+
+    let res: Response;
+    try { res = await fetch(req); }
+    catch (err) { throw new ClientError(err.message, url); }
+
+    this.emit(Client.eventResponse, req, res);
+    if (!res.ok) throw new ClientError('An error occurred while querying the end point.', url);
+  }
+}
 
 /**
  * An exception caused by an error in a `Client` request.
  */
-class ClientError extends Error {
+export class ClientError extends Error {
+
+  /**
+   * The URL of the HTTP request or response that failed.
+   */
+  public uri: URL | null;
 
   /**
    * Creates a new client error.
-   * @param {string} message A message describing the error.
-   * @param {string|URL} [uri] The URL of the HTTP request or response that failed.
+   * @param message A message describing the error.
+   * @param uri The URL of the HTTP request or response that failed.
    */
-  constructor(message, uri) {
+  constructor(message: string = '', uri: null | string | URL = null) {
     super(message);
-
-    /**
-     * The error name.
-     * @type {string}
-     */
     this.name = 'ClientError';
-
-    /**
-     * The URL of the HTTP request or response that failed.
-     * @type {URL}
-     */
     this.uri = typeof uri == 'string' ? new URL(uri) : uri;
   }
 
@@ -32,84 +95,8 @@ class ClientError extends Error {
    * @return The string representation of this object.
    */
   public toString(): string {
-    const values = `"${this.message}"`;
+    let values = `"${this.message}"`;
     if (this.uri) values = `${values}, uri: "${this.uri.href}"`;
     return `${this.name}(${values})`;
-  }
-}
-
-/**
- * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
- */
-class Client extends EventEmitter {
-
-  /**
-   * Initializes a new instance of the class.
-   * @param {string} username The user name associated to the account.
-   * @param {string} password The identification key associated to the account.
-   * @param {string|URL} [endPoint] The URL of the API end point.
-   * @throws {TypeError} The account credentials are invalid.
-   */
-  constructor(username, password, endPoint = 'https://smsapi.free-mobile.fr') {
-    super();
-
-    /**
-     * The URL of the API end point.
-     * @type {URL}
-     */
-    this.endPoint = typeof endPoint == 'string' ? new URL(endPoint) : endPoint;
-
-    /**
-     * The identification key associated to the account.
-     * @type {string}
-     */
-    this.password = password;
-    if (!this.password.length) throw new TypeError('The password is empty');
-
-    /**
-     * The user name associated to the account.
-     * @type {string}
-     */
-    this.username = username;
-    if (!this.username.length) throw new TypeError('The username is empty');
-  }
-
-  /**
-   * The class name.
-   * @type {string}
-   */
-  get [Symbol.toStringTag](): string {
-    return 'Client';
-  }
-
-  /**
-   * Sends a SMS message to the underlying account.
-   * @param {string} text The text of the message to send.
-   * @return {Promise} Completes when the operation is done.
-   * @event {Request} The "request" event.
-   * @event {Response} The "response" event.
-   */
-  async sendMessage(text) {
-    const message = text.trim();
-    if (!message.length) throw new TypeError('The specified message is empty');
-
-    const endPoint = new URL('/sendmsg', this.endPoint);
-    endPoint.search = new URLSearchParams({
-      msg: message.substr(0, 160),
-      pass: this.password,
-      user: this.username
-    });
-
-    const req = new fetch.Request(endPoint.href);
-    this.emit('request', req);
-
-    const res;
-    try { res = await fetch(req); }
-    catch (err) { throw new ClientError(err.message, endPoint); }
-
-    this.emit('response', req, res);
-
-    if (!res.ok) throw new ClientError('An error occurred while querying the end point', endPoint);
-    return res.text();
   }
 }
