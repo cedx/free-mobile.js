@@ -1,1 +1,1 @@
-module.exports from './client.js');
+export * from './client';
