@@ -40,7 +40,7 @@ class ClientTest {
 
     // It should throw a `ClientError` if a network error occurred.
     try {
-      await new Client('anonymous', 'secret', 'http://localhost').sendMessage('Bonjour Cédric !');
+      await new Client('anonymous', 'secret', new URL('http://localhost')).sendMessage('Bonjour Cédric !');
       expect.fail('Error not thrown');
     }
 
