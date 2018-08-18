@@ -10,13 +10,13 @@ export class Client extends EventEmitter {
    * An event that is triggered when a request is made to the remote service.
    * @event request
    */
-  public static readonly eventRequest: string = 'request';
+  static readonly eventRequest: string = 'request';
 
   /**
    * An event that is triggered when a response is received from the remote service.
    * @event response
    */
-  public static readonly eventResponse: string = 'response';
+  static readonly eventResponse: string = 'response';
 
   /**
    * Creates a new client.
@@ -25,7 +25,7 @@ export class Client extends EventEmitter {
    * @param endPoint The URL of the API end point.
    * @throws {TypeError} The account credentials are invalid.
    */
-  constructor(public username: string, public password: string, public readonly endPoint: URL = new URL('https://smsapi.free-mobile.fr')) {
+  constructor(public username: string, public password: string, readonly endPoint: URL = new URL('https://smsapi.free-mobile.fr')) {
     super();
     if (!this.password.length || !this.username.length) throw new TypeError('The account credentials are invalid.');
   }
@@ -42,7 +42,7 @@ export class Client extends EventEmitter {
    * @param text The text of the message to send.
    * @return Completes when the operation is done.
    */
-  public async sendMessage(text: string): Promise<void> {
+  async sendMessage(text: string): Promise<void> {
     const message = text.trim();
     if (!message.length) throw new TypeError('The specified message is empty.');
 
@@ -73,7 +73,7 @@ export class ClientError extends Error {
    * @param message A message describing the error.
    * @param uri The URL of the HTTP request or response that failed.
    */
-  constructor(message: string = '', public readonly uri: URL | null = null) {
+  constructor(message: string = '', readonly uri: URL | null = null) {
     super(message);
     this.name = 'ClientError';
   }
@@ -82,7 +82,7 @@ export class ClientError extends Error {
    * Returns a string representation of this object.
    * @return The string representation of this object.
    */
-  public toString(): string {
+  toString(): string {
     let values = `"${this.message}"`;
     if (this.uri) values = `${values}, uri: "${this.uri.href}"`;
     return `${this.name}(${values})`;

@@ -12,7 +12,7 @@ class ClientTest {
   /**
    * @test {Client#constructor}
    */
-  @test public async testConstructor(): Promise<void> {
+  @test async testConstructor(): Promise<void> {
     // It should throw an error if the credentials are invalid.
     try {
       await new Client('', '').sendMessage('Hello World!');
@@ -27,7 +27,7 @@ class ClientTest {
   /**
    * @test {Client#sendMessage}
    */
-  @test public async testSendMessage(): Promise<void> {
+  @test async testSendMessage(): Promise<void> {
     // It should not send invalid messages.
     try {
       await new Client('anonymous', 'secret').sendMessage('');
