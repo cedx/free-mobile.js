@@ -10,7 +10,7 @@ import {Client, ClientError} from '../src';
 class ClientTest {
 
   /**
-   * @test {Client#constructor}
+   * Tests the `Client` constructor.
    */
   @test async testConstructor(): Promise<void> {
     // It should throw an error if the credentials are invalid.
@@ -25,7 +25,7 @@ class ClientTest {
   }
 
   /**
-   * @test {Client#sendMessage}
+   * Tests the `Client#sendMessage()` method.
    */
   @test async testSendMessage(): Promise<void> {
     // It should not send invalid messages.
