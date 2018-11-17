@@ -1,5 +1,6 @@
 import {EventEmitter} from 'events';
-import fetch, {Request, Response} from 'node-fetch';
+import * as fetch from 'node-fetch';
+import {Request, Response} from 'node-fetch';
 
 /**
  * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
