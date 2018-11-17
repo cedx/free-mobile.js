@@ -1,22 +1,21 @@
 {
   "author": "Cédric Belin <cedric@belin.io>",
-  "bugs": "https://github.com/cedx/free-mobile.js/issues",
+  "bugs": "https://git.belin.io/cedx/free-mobile.js/issues",
   "description": "Send SMS messages to your Free Mobile device. A simple and free way to monitor your applications using a Free Mobile account.",
   "homepage": "https://dev.belin.io/free-mobile.js",
   "license": "MIT",
   "main": "./lib/index.js",
   "name": "@cedx/free-mobile",
-  "repository": "cedx/free-mobile.js",
   "types": "./lib/index.d.ts",
   "version": "11.0.0",
   "dependencies": {
-    "node-fetch": "^2.2.0"
+    "node-fetch": "^2.3.0"
   },
   "devDependencies": {
-    "@cedx/coveralls": "^8.1.0",
+    "@cedx/coveralls": "^8.2.1",
     "@types/chai": "^4.1.7",
-    "@types/node": "^10.12.0",
-    "@types/node-fetch": "^2.1.2",
+    "@types/node": "^10.12.9",
+    "@types/node-fetch": "^2.1.3",
     "chai": "^4.2.0",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
@@ -27,7 +26,7 @@
     "ts-node": "^7.0.1",
     "tslint": "^5.11.0",
     "typedoc": "^0.13.0",
-    "typescript": "^3.1.3"
+    "typescript": "^3.1.6"
   },
   "engines": {
     "node": ">=10.13.0",
@@ -41,6 +40,10 @@
     "sdk",
     "sms"
   ],
+  "repository": {
+    "type": "git",
+    "url": "https://git.belin.io/cedx/free-mobile.js.git"
+  },
   "scripts": {
     "coverage": "gulp coverage",
     "prepare": "gulp build",
