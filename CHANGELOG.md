@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [11.1.0](https://github.com/cedx/free-mobile.js/compare/v11.0.0...v11.1.0)
+- Updated the package dependencies.
+
 ## Version [11.0.0](https://github.com/cedx/free-mobile.js/compare/v10.1.0...v11.0.0)
 - Breaking change: changed the signature of the `Client` and `ClientError` constructors.
 - Updated the package dependencies.
