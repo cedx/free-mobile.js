@@ -3,7 +3,7 @@
 ## Development
 - [API reference](https://dev.belin.io/free-mobile.js/api)
 - [npm package](https://www.npmjs.com/package/@cedx/free-mobile)
-- [Submit an issue](https://git.belin.io/cedx/free-mobile.js/issues)
+- [Submit an issue](https://github.com/cedx/free-mobile.js/issues)
 
 ## Testing
 - [Continuous integration](https://travis-ci.com/cedx/free-mobile.js)

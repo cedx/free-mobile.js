@@ -11,7 +11,7 @@ in [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Ty
 ## Development
 - [Git repository](https://git.belin.io/cedx/free-mobile.js)
 - [npm package](https://www.npmjs.com/package/@cedx/free-mobile)
-- [Submit an issue](https://git.belin.io/cedx/free-mobile.js/issues)
+- [Submit an issue](https://github.com/cedx/free-mobile.js/issues)
 
 ## License
 [Free Mobile for JS](https://dev.belin.io/free-mobile.js) is distributed under the MIT License.
