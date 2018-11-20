@@ -1,5 +1,5 @@
 import {EventEmitter} from 'events';
-import * as fetch from 'node-fetch';
+import fetch from 'node-fetch';
 import {Request, Response} from 'node-fetch';
 
 /**
