@@ -1,6 +1,6 @@
-import {EventEmitter} from 'events';
-import fetch from 'node-fetch';
-import {Request, Response} from 'node-fetch';
+import {EventEmitter} from 'eventemitter3';
+import {ClientError} from './core';
+export * from './core';
 
 /**
  * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
@@ -61,31 +61,5 @@ export class Client extends EventEmitter {
 
     this.emit(Client.eventResponse, req, res);
     if (!res.ok) throw new ClientError('An error occurred while querying the end point.', url);
-  }
-}
-
-/**
- * An exception caused by an error in a `Client` request.
- */
-export class ClientError extends Error {
-
-  /**
-   * Creates a new client error.
-   * @param message A message describing the error.
-   * @param uri The URL of the HTTP request or response that failed.
-   */
-  constructor(message: string = '', readonly uri: URL | null = null) {
-    super(message);
-    this.name = 'ClientError';
-  }
-
-  /**
-   * Returns a string representation of this object.
-   * @return The string representation of this object.
-   */
-  toString(): string {
-    let values = `"${this.message}"`;
-    if (this.uri) values = `${values}, uri: "${this.uri.href}"`;
-    return `${this.name}(${values})`;
   }
 }
