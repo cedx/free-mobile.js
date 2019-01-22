@@ -1,10 +1,10 @@
 import {EventEmitter} from 'eventemitter3';
-import {HttpClient} from './fetch';
+import {FetchClient} from './fetch';
 
 /**
  * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
  */
-export class Client extends EventEmitter<string> {
+export abstract class BaseClient extends EventEmitter<string> {
 
   /**
    * An event that is triggered when a request is made to the remote service.
@@ -19,18 +19,18 @@ export class Client extends EventEmitter<string> {
   static readonly eventResponse: string = 'response';
 
   /**
-   * The HTTP client used to query the remote service.
+   * The URL of the API end point.
    */
-  protected _http: HttpClient | null = null;
+  endPoint: URL = new URL('https://smsapi.free-mobile.fr');
 
   /**
    * Creates a new client.
    * @param username The user name associated to the account.
    * @param password The identification key associated to the account.
-   * @param endPoint The URL of the API end point.
+   * @param _http The `fetch` client used to query the remote service.
    * @throws {TypeError} The account credentials are invalid.
    */
-  constructor(public username: string, public password: string, readonly endPoint: URL = new URL('https://smsapi.free-mobile.fr')) {
+  protected constructor(public username: string, public password: string, private _http: FetchClient) {
     super();
     if (!this.password.length || !this.username.length) throw new TypeError('The account credentials are invalid.');
   }
@@ -56,14 +56,14 @@ export class Client extends EventEmitter<string> {
     url.searchParams.set('pass', this.password);
     url.searchParams.set('user', this.username);
 
-    const req = new Request(url.href);
-    this.emit(Client.eventRequest, req);
+    const req = this._http.newRequest(url);
+    this.emit(BaseClient.eventRequest, req);
 
     let res: Response;
-    try { res = await this._http!.fetch(req); }
+    try { res = await this._http.fetch(req); }
     catch (err) { throw new ClientError(err.message, url); }
 
-    this.emit(Client.eventResponse, req, res);
+    this.emit(BaseClient.eventResponse, req, res);
     if (!res.ok) throw new ClientError('An error occurred while querying the end point.', url);
   }
 }

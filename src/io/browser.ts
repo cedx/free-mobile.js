@@ -1,15 +1,11 @@
-/**
- * Creates a new HTTP client.
- * @return The newly created HTTP client.
- */
-export function newHttpClient(): FetchFunction {
-  // TODO
-}
+import {FetchClient} from '../http';
 
 /**
- * Creates a new `Request` instance.
- * @return The newly created request.
+ * The `fetch` client for browsers.
  */
-export function newHttpRequest(): Request {
-  // TODO
-}
+export const fetchClient: FetchClient = {
+  fetch,
+  newRequest(url: URL): Request {
+    return new Request(url.href);
+  }
+};

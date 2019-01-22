@@ -1,27 +1,25 @@
-import {Request, RequestInfo, RequestInit, Response} from 'node-fetch';
-
 /**
  * A function for fetching HTTP resources.
  */
-export type FetchFunction = (input: RequestInfo, init?: RequestInit) => Promise<Response>;
+export type FetchFunction = (request: Request) => Promise<Response>;
 
 /**
  * A factory function creating HTTP requests.
  */
-export type RequestFactory = (input: RequestInfo, init?: RequestInit) => Request;
+export type RequestFactory = (url: URL) => Request;
 
 /**
- * Defines the shape of an HTTP client.
+ * Defines the shape of an HTTP client based on [`Fetch API`](https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API).
  */
-export interface HttpClient {
+export interface FetchClient {
 
   /**
-   * The function to use for creating new requests.
-   */
-  createRequest: RequestFactory;
-
-  /**
-   * The function to use for fetching resources.
+   * Fetches resources.
    */
   fetch: FetchFunction;
+
+  /**
+   * Creates new requests.
+   */
+  newRequest: RequestFactory;
 }
