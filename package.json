@@ -4,10 +4,10 @@
   "description": "Send SMS messages to your Free Mobile device. A simple and free way to monitor your applications using a Free Mobile account.",
   "homepage": "https://dev.belin.io/free-mobile.js",
   "license": "MIT",
-  "main": "./lib/index.js",
+  "main": "lib/index",
   "name": "@cedx/free-mobile",
   "repository": "github:cedx/free-mobile.js",
-  "types": "./lib/index.d.ts",
+  "types": "lib/index.d.ts",
   "version": "11.3.0",
   "author": {
     "email": "cedric@belin.io",
