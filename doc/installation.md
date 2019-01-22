@@ -36,3 +36,30 @@ Now in your [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript
 ```ts
 import {Client, ClientError} from '@cedx/free-mobile';
 ```
+
+!!! info
+    This library is packaged as [CommonJS modules](https://nodejs.org/api/modules.html).  
+    To consume it in a browser, you must use a dedicated tool chain, like a build system coupled with a bundler.
+
+### 3. Use it
+See the [usage information](usage.md).
+
+## Installing from a content delivery network
+This library is also available as a ready-made bundle.
+To install it, add this code snippet to the `<head>` of your HTML document:
+
+```html
+<!-- jsDelivr -->
+<script src="https://cdn.jsdelivr.net/npm/@cedx/free-mobile/build/free-mobile.min.js"></script>
+
+<!-- UNPKG -->
+<script src="https://unpkg.com/@cedx/free-mobile/build/free-mobile.min.js"></script>
+```
+
+The classes of this library are exposed as `freeMobile` property on the `window` global object:
+
+```html
+<script>
+  const {Client, ClientError} = window.freeMobile;
+</script>
+```
