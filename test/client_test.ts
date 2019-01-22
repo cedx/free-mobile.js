@@ -7,6 +7,7 @@ import {Client, ClientError} from '../src';
  */
 describe('Client', function() {
   this.timeout(15000);
+  const isBrowser = typeof window != 'undefined' && typeof window.document != 'undefined';
 
   /**
    * Tests the `Client` constructor.
@@ -50,7 +51,7 @@ describe('Client', function() {
       }
     });
 
-    it('should send valid messages with valid credentials', async () => {
+    if (!isBrowser) it('should send valid messages with valid credentials', async () => {
       const {FREEMOBILE_USERNAME: username, FREEMOBILE_PASSWORD: password} = process.env;
       if (username && password) try {
         await new Client(username, password).sendMessage('Bonjour Cédric !');

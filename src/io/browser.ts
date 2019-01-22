@@ -14,7 +14,7 @@ export class Client extends BaseClient {
   constructor(username: string, password: string, endPoint?: URL) {
     super(username, password, {
       fetch(request: Request): Promise<Response> { return window.fetch(request); },
-      newRequest(url: URL): Request { return new Request(url.href); }
+      newRequest(url: URL): Request { return new Request(url.href, {mode: 'no-cors'}); }
     });
 
     if (endPoint) this.endPoint = endPoint;
