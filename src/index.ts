@@ -1,1 +1,5 @@
-export * from './http/node';
+export * from './http';
+
+export class Client extends AbstractClient {
+
+}

@@ -1,11 +1,10 @@
 import {EventEmitter} from 'eventemitter3';
-import {ClientError} from './core';
-export * from './core';
+import {HttpClient} from './fetch';
 
 /**
  * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
  */
-export class Client extends EventEmitter {
+export class Client extends EventEmitter<string> {
 
   /**
    * An event that is triggered when a request is made to the remote service.
@@ -18,6 +17,11 @@ export class Client extends EventEmitter {
    * @event response
    */
   static readonly eventResponse: string = 'response';
+
+  /**
+   * The HTTP client used to query the remote service.
+   */
+  protected _http: HttpClient | null = null;
 
   /**
    * Creates a new client.
@@ -56,10 +60,36 @@ export class Client extends EventEmitter {
     this.emit(Client.eventRequest, req);
 
     let res: Response;
-    try { res = await fetch(req); }
+    try { res = await this._http!.fetch(req); }
     catch (err) { throw new ClientError(err.message, url); }
 
     this.emit(Client.eventResponse, req, res);
     if (!res.ok) throw new ClientError('An error occurred while querying the end point.', url);
+  }
+}
+
+/**
+ * An exception caused by an error in a `Client` request.
+ */
+export class ClientError extends Error {
+
+  /**
+   * Creates a new client error.
+   * @param message A message describing the error.
+   * @param uri The URL of the HTTP request or response that failed.
+   */
+  constructor(message: string = '', readonly uri: URL | null = null) {
+    super(message);
+    this.name = 'ClientError';
+  }
+
+  /**
+   * Returns a string representation of this object.
+   * @return The string representation of this object.
+   */
+  toString(): string {
+    let values = `"${this.message}"`;
+    if (this.uri) values = `${values}, uri: "${this.uri.href}"`;
+    return `${this.name}(${values})`;
   }
 }
