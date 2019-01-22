@@ -36,13 +36,6 @@ export abstract class BaseClient extends EventEmitter<string> {
   }
 
   /**
-   * The class name.
-   */
-  get [Symbol.toStringTag](): string {
-    return 'Client';
-  }
-
-  /**
    * Sends a SMS message to the underlying account.
    * @param text The text of the message to send.
    * @return Completes when the operation is done.
