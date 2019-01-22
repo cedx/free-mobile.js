@@ -1,7 +1,10 @@
 # Changelog
 
 ## Version [11.3.0](https://github.com/cedx/free-mobile.js/compare/v11.2.0...v11.3.0)
+- Added support for a redistributable bundle.
+- Added support for browser testing.
 - Added an example code.
+- Updated the package dependencies.
 
 ## Version [11.2.0](https://github.com/cedx/free-mobile.js/compare/v11.1.0...v11.2.0)
 - Updated the package dependencies.

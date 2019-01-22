@@ -8,7 +8,7 @@
   "name": "@cedx/free-mobile",
   "repository": "github:cedx/free-mobile.js",
   "types": "./lib/index.d.ts",
-  "version": "11.2.0",
+  "version": "11.3.0",
   "author": {
     "email": "cedric@belin.io",
     "name": "Cédric Belin",
