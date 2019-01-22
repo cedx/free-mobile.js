@@ -20,7 +20,11 @@ const sources = ['*.js', 'example/*.ts', 'src/**/*.ts', 'test/**/*.ts'];
 /**
  * Builds the project.
  */
-gulp.task('build', () => _exec('tsc'));
+gulp.task('build', async () => {
+  await _exec('tsc');
+  await _exec('rollup', ['--config']);
+  return _exec('minify', ['build/free-mobile.js', '--out-file=build/free-mobile.min.js']);
+});
 
 /**
  * Deletes all generated files and reset any saved state.
