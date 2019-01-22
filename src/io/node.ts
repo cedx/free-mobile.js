@@ -14,10 +14,8 @@ export class Client extends BaseClient {
    */
   constructor(username: string, password: string, endPoint?: URL) {
     super(username, password, {
-      fetch: fetch as any,
-      newRequest(url: URL): Request {
-        return new NodeRequest(url.href) as any;
-      }
+      fetch(request: Request): Promise<Response> { return fetch(request as any) as any; },
+      newRequest(url: URL): Request { return new NodeRequest(url.href) as any; }
     });
 
     if (endPoint) this.endPoint = endPoint;

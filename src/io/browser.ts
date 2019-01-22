@@ -13,10 +13,8 @@ export class Client extends BaseClient {
    */
   constructor(username: string, password: string, endPoint?: URL) {
     super(username, password, {
-      fetch: window.fetch,
-      newRequest(url: URL): Request {
-        return new Request(url.href);
-      }
+      fetch(request: Request): Promise<Response> { return window.fetch(request); },
+      newRequest(url: URL): Request { return new Request(url.href); }
     });
 
     if (endPoint) this.endPoint = endPoint;
