@@ -1,8 +1,6 @@
-const commonjs = require('rollup-plugin-commonjs');
-const nodeResolve = require('rollup-plugin-node-resolve');
-
+const resolve = require('rollup-plugin-node-resolve');
 module.exports = {
-  input: 'lib/browser.js',
+  input: 'lib/browser.mjs',
   output: {file: 'build/free-mobile.js', format: 'iife', name: 'freeMobile'},
-  plugins: [nodeResolve(), commonjs()]
+  plugins: [resolve()]
 };

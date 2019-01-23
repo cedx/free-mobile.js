@@ -1,5 +1,5 @@
 {
-  "browser": "./lib/browser.js",
+  "browser": "lib/browser.mjs",
   "bugs": "https://github.com/cedx/free-mobile.js/issues",
   "description": "Send SMS messages to your Free Mobile device. A simple and free way to monitor your applications using a Free Mobile account.",
   "homepage": "https://dev.belin.io/free-mobile.js",
@@ -28,6 +28,7 @@
     "chai": "^4.2.0",
     "del": "^3.0.0",
     "gulp": "^4.0.0",
+    "gulp-rename": "^1.4.0",
     "karma": "^3.1.4",
     "karma-chrome-launcher": "^2.2.0",
     "karma-mocha": "^1.3.0",
@@ -36,7 +37,6 @@
     "mocha-typescript": "^1.1.17",
     "nyc": "^13.1.0",
     "rollup": "^1.1.2",
-    "rollup-plugin-commonjs": "^9.2.0",
     "rollup-plugin-node-resolve": "^4.0.0",
     "source-map-support": "^0.5.10",
     "ts-node": "^8.0.1",
