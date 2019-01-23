@@ -5,6 +5,7 @@
   "homepage": "https://dev.belin.io/free-mobile.js",
   "license": "MIT",
   "main": "lib/index",
+  "module": "lib/index.mjs",
   "name": "@cedx/free-mobile",
   "repository": "github:cedx/free-mobile.js",
   "types": "lib/index.d.ts",
