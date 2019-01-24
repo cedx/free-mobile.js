@@ -38,8 +38,7 @@ import {Client, ClientError} from '@cedx/free-mobile';
 ```
 
 !!! info
-    This library is packaged as [CommonJS modules](https://nodejs.org/api/modules.html) (`.js` files)
-    and [ECMAScript modules](https://nodejs.org/api/esm.html) (`.mjs` files).  
+    This library is packaged as [CommonJS modules](https://nodejs.org/api/modules.html) (`.js` files) and [ECMAScript modules](https://nodejs.org/api/esm.html) (`.mjs` files).  
     To consume it in a browser, you must use a dedicated tool chain, like a build system coupled with a bundler.
 
 ### 3. Use it
