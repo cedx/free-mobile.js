@@ -28,7 +28,7 @@ describe('Client', function() {
   /**
    * Tests the `Client#sendMessage()` method.
    */
-  describe('SendMessage', async () => {
+  describe('#sendMessage', async () => {
     it('should not send invalid messages', async () => {
       try {
         await new Client('anonymous', 'secret').sendMessage('');
