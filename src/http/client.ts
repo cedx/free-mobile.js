@@ -45,7 +45,7 @@ export abstract class BaseClient extends EventEmitter<string> {
     if (!message.length) throw new TypeError('The specified message is empty.');
 
     const url = new URL('sendmsg', this.endPoint);
-    url.searchParams.set('msg', message.substr(0, 160));
+    url.searchParams.set('msg', message.substring(0, 160));
     url.searchParams.set('pass', this.password);
     url.searchParams.set('user', this.username);
 
