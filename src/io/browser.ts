@@ -1,4 +1,4 @@
-import {BaseClient} from '../http';
+import {BaseClient} from '../http/client';
 
 /**
  * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
