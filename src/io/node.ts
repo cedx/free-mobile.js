@@ -20,11 +20,4 @@ export class Client extends BaseClient {
 
     if (endPoint) this.endPoint = endPoint;
   }
-
-  /**
-   * The class name.
-   */
-  get [Symbol.toStringTag](): string {
-    return `Client(Node.js, endPoint: "${this.endPoint.href}")`;
-  }
 }
