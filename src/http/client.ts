@@ -21,7 +21,7 @@ export abstract class BaseClient extends EventEmitter<string> {
   /**
    * The URL of the API end point.
    */
-  endPoint: URL = new URL('https://smsapi.free-mobile.fr');
+  endPoint: URL = new URL('https://smsapi.free-mobile.fr/');
 
   /**
    * Creates a new client.
