@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [11.4.0](https://github.com/cedx/free-mobile.js/compare/v11.3.0...v11.4.0)
+- Added support for [ECMAScript modules](https://nodejs.org/api/esm.html).
+- Updated the package dependencies.
+
 ## Version [11.3.0](https://github.com/cedx/free-mobile.js/compare/v11.2.0...v11.3.0)
 - Added support for a redistributable bundle.
 - Added support for browser testing.
