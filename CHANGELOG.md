@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [11.4.1](https://github.com/cedx/free-mobile.js/compare/v11.4.0...v11.4.1)
+- Fixed the [GitHub issue #3](https://github.com/cedx/free-mobile.js/issues/3): the browser bundle was not deployed on CDNs.
+
 ## Version [11.4.0](https://github.com/cedx/free-mobile.js/compare/v11.3.0...v11.4.0)
 - Added support for [ECMAScript modules](https://nodejs.org/api/esm.html).
 - Updated the package dependencies.
