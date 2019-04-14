@@ -3,7 +3,7 @@ import {expect} from 'chai';
 import {Client, ClientError} from '../src';
 
 /**
- * Tests the features of the `Client` class.
+ * Tests the features of the [[Client]] class.
  */
 describe('Client', function() {
   this.timeout(15000);
