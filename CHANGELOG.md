@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [11.5.0](https://github.com/cedx/free-mobile.js/compare/v11.4.1...v11.5.0)
+- Modified the package layout.
+- Updated the package dependencies.
+
 ## Version [11.4.1](https://github.com/cedx/free-mobile.js/compare/v11.4.0...v11.4.1)
 - Fixed the [GitHub issue #3](https://github.com/cedx/free-mobile.js/issues/3): the browser bundle was not deployed on CDNs.
 
