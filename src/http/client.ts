@@ -1,9 +1,7 @@
 import {EventEmitter} from 'eventemitter3';
 import {FetchClient} from './fetch';
 
-/**
- * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
- */
+/** Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account. */
 export abstract class BaseClient extends EventEmitter<string> {
 
   /**
@@ -18,9 +16,7 @@ export abstract class BaseClient extends EventEmitter<string> {
    */
   static readonly eventResponse: string = 'response';
 
-  /**
-   * The URL of the API end point.
-   */
+  /** The URL of the API end point. */
   endPoint: URL = new URL('https://smsapi.free-mobile.fr/');
 
   /**
@@ -61,9 +57,7 @@ export abstract class BaseClient extends EventEmitter<string> {
   }
 }
 
-/**
- * An exception caused by an error in a `Client` request.
- */
+/** An exception caused by an error in a `Client` request. */
 export class ClientError extends Error {
 
   /**

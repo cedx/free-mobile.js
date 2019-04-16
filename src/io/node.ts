@@ -1,9 +1,7 @@
 import fetch, {Request as NodeRequest} from 'node-fetch';
 import {BaseClient} from '../http/client';
 
-/**
- * Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account.
- */
+/** Sends messages by SMS to a [Free Mobile](http://mobile.free.fr) account. */
 export class Client extends BaseClient {
 
   /**

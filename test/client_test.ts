@@ -2,16 +2,12 @@
 import {expect} from 'chai';
 import {Client, ClientError} from '../src';
 
-/**
- * Tests the features of the [[Client]] class.
- */
+/** Tests the features of the [[Client]] class. */
 describe('Client', function() {
   this.timeout(15000);
   const isBrowser = typeof window != 'undefined' && typeof window.document != 'undefined';
 
-  /**
-   * Tests the `Client` constructor.
-   */
+  /** Tests the `Client` constructor. */
   describe('constructor', async () => {
     it('should throw an error if the credentials are invalid', async () => {
       try {
@@ -25,9 +21,7 @@ describe('Client', function() {
     });
   });
 
-  /**
-   * Tests the `Client#sendMessage()` method.
-   */
+  /** Tests the `Client#sendMessage()` method. */
   describe('#sendMessage', async () => {
     it('should not send invalid messages', async () => {
       try {
