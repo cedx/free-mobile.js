@@ -3,9 +3,7 @@
 // @ts-ignore
 import {Client, ClientError} from '@cedx/free-mobile';
 
-/**
- * Sends an SMS notification.
- */
+/** Sends an SMS notification. */
 async function main() {
   try {
     const client = new Client('your account identifier', 'your API key');

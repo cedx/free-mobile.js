@@ -45,7 +45,8 @@ describe('Client', function() {
       }
     });
 
-    if (!isBrowser) it('should send valid messages with valid credentials', async () => {
+    const test = isBrowser ? it.skip : it;
+    test('should send valid messages with valid credentials', async () => {
       const {FREEMOBILE_USERNAME: username, FREEMOBILE_PASSWORD: password} = process.env;
       if (username && password) try {
         await new Client(username, password).sendMessage('Bonjour Cédric !');
