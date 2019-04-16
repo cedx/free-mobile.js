@@ -33,18 +33,21 @@ if the account credentials are invalid or if the specified message is empty. It 
     you can't send multipart messages using this library.
 
 ## Client events
-The `Client` class is an [`EventEmitter`](https://nodejs.org/api/events.html) that triggers some events during its life cycle:
+The `Client` class is an [`EventEmitter`](https://nodejs.org/api/events.html) that triggers some events during its life cycle.
 
-- `request` : emitted every time a request is made to the remote service.
-- `response` : emitted every time a response is received from the remote service.
-
-You can subscribe to them using the `on()` method:
+### The `Client.eventRequest` event
+Emitted every time a request is made to the remote service:
 
 ```ts
 client.on(Client.eventRequest, (request) =>
   console.log(`Client request: ${request.url}`)
 );
+```
 
+### The `Client.eventResponse` event
+Emitted every time a response is received from the remote service:
+
+```ts
 client.on(Client.eventResponse, (request, response) =>
   console.log(`Server response: ${response.status}`)
 );
