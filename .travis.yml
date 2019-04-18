@@ -9,5 +9,7 @@ install:
   - npm install --global gulp-cli
   - npm install
 
-script: gulp test:${PLATFORM}
+script:
+  - gulp test:${PLATFORM}
+  - cat /home/travis/build/cedx/free-mobile.js/src/http/client.js
 after_success: npm run-script coverage
