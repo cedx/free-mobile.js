@@ -7,7 +7,7 @@ describe('Client', function() {
   this.timeout(15000);
   const isBrowser = typeof window != 'undefined' && typeof window.document != 'undefined';
 
-  /** Tests the `Client` constructor. */
+  /** Tests the [[Client]] constructor. */
   describe('constructor', async () => {
     it('should throw an error if the credentials are invalid', async () => {
       try {
