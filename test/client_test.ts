@@ -8,7 +8,7 @@ describe('Client', function() {
   const isBrowser = typeof window != 'undefined' && typeof window.document != 'undefined';
 
   /** Tests the [[Client]] constructor. */
-  describe('constructor', async () => {
+  describe('constructor', () => {
     it('should throw an error if the credentials are invalid', async () => {
       try {
         await new Client('', '').sendMessage('Hello World!');
@@ -22,7 +22,7 @@ describe('Client', function() {
   });
 
   /** Tests the `Client#sendMessage()` method. */
-  describe('#sendMessage()', async () => {
+  describe('#sendMessage()', () => {
     it('should not send invalid messages', async () => {
       try {
         await new Client('anonymous', 'secret').sendMessage('');

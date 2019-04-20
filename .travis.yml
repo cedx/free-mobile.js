@@ -1,6 +1,6 @@
 addons: {firefox: latest}
 dist: xenial
-env: [PLATFORM=browser, PLATFORM=node]
+env: [PLATFORM=node] # TODO PLATFORM=browser
 language: node_js
 node_js: '10'
 notifications: {email: false}
