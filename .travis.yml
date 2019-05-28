@@ -1,4 +1,4 @@
-addons: {firefox: latest}
+addons: {chrome: stable}
 dist: xenial
 env: [PLATFORM=node] # TODO PLATFORM=browser
 language: node_js
