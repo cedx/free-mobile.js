@@ -1,13 +1,12 @@
-/* tslint:disable: no-unused-expression */
-import {expect} from 'chai';
-import {Client, ClientError} from '../src';
+import chai from 'chai';
+import {Client, ClientError} from '../lib/index.js';
 
-/** Tests the features of the [[Client]] class. */
+/** Tests the features of the {@link Client} class. */
 describe('Client', function() {
-  this.timeout(15000);
   const isBrowser = typeof window != 'undefined' && typeof window.document != 'undefined';
+  const {expect} = chai;
+  this.timeout(15000); // eslint-disable-line no-invalid-this
 
-  /** Tests the [[Client]] constructor. */
   describe('constructor', () => {
     it('should throw an error if the credentials are invalid', async () => {
       try {
@@ -21,7 +20,6 @@ describe('Client', function() {
     });
   });
 
-  /** Tests the `Client#sendMessage()` method. */
   describe('#sendMessage()', () => {
     it('should not send invalid messages', async () => {
       try {
