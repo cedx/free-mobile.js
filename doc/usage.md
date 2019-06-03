@@ -1,12 +1,12 @@
 path: blob/master
-source: src/client.ts
+source: lib/client.js
 
 # Usage
 
 ## SMS notifications
 **Free Mobile for JS** provides the `Client` class, which allow to send SMS messages to your mobile phone by using the `sendMessage()` method:
 
-```ts
+```js
 import {Client, ClientError} from '@cedx/free-mobile';
 
 async function main() {
@@ -38,7 +38,7 @@ The `Client` class is an [`EventEmitter`](https://nodejs.org/api/events.html) th
 ### The `Client.eventRequest` event
 Emitted every time a request is made to the remote service:
 
-```ts
+```js
 client.on(Client.eventRequest, (request) =>
   console.log(`Client request: ${request.url}`)
 );
@@ -47,7 +47,7 @@ client.on(Client.eventRequest, (request) =>
 ### The `Client.eventResponse` event
 Emitted every time a response is received from the remote service:
 
-```ts
+```js
 client.on(Client.eventResponse, (request, response) =>
   console.log(`Server response: ${response.status}`)
 );
