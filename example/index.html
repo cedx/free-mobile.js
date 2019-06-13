@@ -13,12 +13,15 @@
       // Import the classes.
       const {Client, ClientError} = window.freeMobile;
 
-      /** Sends an SMS notification. */
+      /**
+       * Sends an SMS notification.
+       * @return {Promise} Completes when the program is terminated.
+       */
       async function main() {
         const client = new Client('your account identifier', 'your API key');
         // For example: new Client('12345678', 'a9BkVohJun4MAf')
 
-        await client.sendMessage('Hello World!');
+        await client.sendMessage('Hello World from a browser!');
         console.log('The message was sent successfully');
       }
 
