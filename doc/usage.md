@@ -20,7 +20,7 @@ async function main() {
 
   catch (error) {
     console.log(`An error occurred: ${error.message}`);
-    if (error instanceof ClientError) console.log(`From: ${error.uri}`);
+    if (error instanceof ClientError) console.log(`From: ${error.uri.href}`);
   }
 }
 ```
