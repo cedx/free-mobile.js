@@ -1,11 +1,14 @@
 import chai from 'chai';
 import {Client, ClientError} from '../lib/index.js';
+import {password, username} from './config.g.js';
 
 /** Tests the features of the {@link Client} class. */
 describe('Client', function() {
-  const isBrowser = typeof window != 'undefined' && typeof window.document != 'undefined';
-  const {expect} = chai;
   this.timeout(15000); // eslint-disable-line no-invalid-this
+
+  const {expect} = chai;
+  const isBrowser = typeof window != 'undefined' && typeof window.document != 'undefined';
+  const test = isBrowser ? it.skip : it;
 
   describe('constructor', () => {
     it('should throw an error if the credentials are invalid', async () => {
@@ -43,11 +46,9 @@ describe('Client', function() {
       }
     });
 
-    const test = isBrowser ? it.skip : it;
-    test('should send valid messages with valid credentials', async () => {
-      const {FREEMOBILE_USERNAME: username, FREEMOBILE_PASSWORD: password} = process.env;
-      if (username && password) try {
-        await new Client(username, password).sendMessage('Bonjour Cédric !');
+    it('should send valid messages with valid credentials', async () => {
+      try {
+        await new Client(username, password).sendMessage(`Bonjour Cédric, à partir ${isBrowser ? 'd\'un navigateur' : 'de Node.js'} !`);
         expect(true).to.be.ok;
       }
 
