@@ -42,12 +42,13 @@
     "rollup-plugin-node-resolve": "^5.0.1"
   },
   "engines": {
-    "node": ">=12.0.0",
+    "node": ">=12.4.0",
     "npm": ">=6.9.0"
   },
   "keywords": [
     "api",
     "client",
+    "esm",
     "free",
     "mobile",
     "sdk",
@@ -55,7 +56,7 @@
   ],
   "scripts": {
     "coverage": "gulp coverage",
-    "prepare": "gulp build",
+    "prepack": "gulp build",
     "start": "gulp watch",
     "test": "gulp test"
   }
