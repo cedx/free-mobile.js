@@ -26,21 +26,29 @@ async function main() {
 ```
 
 The `Client#sendMessage()` method throws a [`TypeError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
-if the account credentials are invalid or if the specified message is empty. It throws a `ClientError` if any error occurred while sending the message.
+if the account credentials are invalid or if the specified message is empty. It throws a [`ClientError`](https://github.com/cedx/free-mobile.js/blob/master/lib/http/error.js) if any error occurred while sending the message.
 
 !!! warning
     The text of the messages will be automatically truncated to **160** characters:  
     you can't send multipart messages using this library.
 
 ## Client events
-The `Client` class is an [`EventEmitter`](https://nodejs.org/api/events.html) that triggers some events during its life cycle.
+The `Client` class is an event emitter that triggers some events during its life cycle.
+
+The [Node.js](https://nodejs.org) instance is implemented as an [`EventEmitter`](https://nodejs.org/api/events.html), while the browser instance is implemented as an [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) that triggers [`CustomEvent`](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) objects.
 
 ### The `Client.eventRequest` event
 Emitted every time a request is made to the remote service:
 
 ```js
-client.on(Client.eventRequest, (request) =>
-  console.log(`Client request: ${request.url}`)
+// With Node.js:
+client.on(Client.eventRequest, event =>
+  console.log(`Client request: ${event.request.url}`)
+);
+
+// With a browser:
+client.addEventListener(Client.eventRequest, event =>
+  console.log(`Client request: ${event.detail.request.url}`)
 );
 ```
 
@@ -48,8 +56,14 @@ client.on(Client.eventRequest, (request) =>
 Emitted every time a response is received from the remote service:
 
 ```js
-client.on(Client.eventResponse, (request, response) =>
-  console.log(`Server response: ${response.status}`)
+// With Node.js:
+client.on(Client.eventResponse, event =>
+  console.log(`Server response: ${event.response.status}`)
+);
+
+// With a browser:
+client.addEventListener(Client.eventResponse, event =>
+  console.log(`Server response: ${event.detail.response.status}`)
 );
 ```
 
