@@ -8,7 +8,6 @@ describe('Client', function() {
 
   const {expect} = chai;
   const isBrowser = typeof window != 'undefined' && typeof window.document != 'undefined';
-  const test = isBrowser ? it.skip : it;
 
   describe('constructor', () => {
     it('should throw an error if the credentials are invalid', async () => {
