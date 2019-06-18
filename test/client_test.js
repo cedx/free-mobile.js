@@ -4,10 +4,8 @@ import {password, username} from './config.g.js';
 
 /** Tests the features of the {@link Client} class. */
 describe('Client', function() {
-  this.timeout(15000); // eslint-disable-line no-invalid-this
-
   const {expect} = chai;
-  const isBrowser = typeof window != 'undefined' && typeof window.document != 'undefined';
+  this.timeout(15000); // eslint-disable-line no-invalid-this
 
   describe('constructor', () => {
     it('should throw an error if the credentials are invalid', async () => {
@@ -47,6 +45,7 @@ describe('Client', function() {
 
     it('should send valid messages with valid credentials', async () => {
       try {
+        const isBrowser = typeof window != 'undefined' && typeof window.document != 'undefined';
         await new Client(username, password).sendMessage(`Bonjour Cédric, à partir ${isBrowser ? 'd\'un navigateur' : 'de Node.js'} !`);
         expect(true).to.be.ok;
       }
