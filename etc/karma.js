@@ -15,7 +15,7 @@ function browserResolve() {
 
 module.exports = config => config.set({
   basePath: resolve(__dirname, '..'),
-  browsers: ['FirefoxHeadless'],
+  browsers: ['ChromeHeadless'],
   files: [
     {pattern: 'test/**/*.js', type: 'module'}
   ],
