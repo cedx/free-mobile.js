@@ -15,4 +15,4 @@
 /npm-debug.log
 /package-lock.json
 /share/**/*.private.env.json
-/test/**/*.g.js
+/test/**/*.g.ts

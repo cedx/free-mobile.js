@@ -5,8 +5,8 @@
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
 - Breaking change: reverted the source code to [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
 - Breaking change: the browser client is now an [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) instead of an [`EventEmitter`](https://nodejs.org/api/events.html).
-- Replaced [TypeDoc](https://typedoc.org) documentation generator by [JSDoc](https://jsdoc.app).
-- Replaced [TSLint](https://palantir.github.io/tslint) static analyzer by [ESLint](https://eslint.org).
+- Replaced the [TypeDoc](https://typedoc.org) documentation generator by [JSDoc](https://jsdoc.app).
+- Replaced the [TSLint](https://palantir.github.io/tslint) static analyzer by [ESLint](https://eslint.org).
 - Updated the package dependencies.
 
 ## Version [11.5.0](https://github.com/cedx/free-mobile.js/compare/v11.4.1...v11.5.0)
@@ -14,7 +14,7 @@
 - Updated the package dependencies.
 
 ## Version [11.4.1](https://github.com/cedx/free-mobile.js/compare/v11.4.0...v11.4.1)
-- Fixed the [GitHub issue #3](https://github.com/cedx/free-mobile.js/issues/3): the browser bundle was not deployed on CDNs.
+- Fixed the [issue #3](https://github.com/cedx/free-mobile.js/issues/3): the browser bundle was not deployed on CDNs.
 
 ## Version [11.4.0](https://github.com/cedx/free-mobile.js/compare/v11.3.0...v11.4.0)
 - Added support for [ECMAScript modules](https://nodejs.org/api/esm.html).
@@ -41,8 +41,8 @@
 - Added the `eventRequest` and `eventResponse` static properties to the `Client` class.
 - Ported the source code to [TypeScript](https://www.typescriptlang.org).
 - Ported the unit tests to classes with experimental decorators.
-- Replaced [ESDoc](https://esdoc.org) documentation generator by [TypeDoc](https://typedoc.org).
-- Replaced [ESLint](https://eslint.org) static analyzer by [TSLint](https://palantir.github.io/tslint).
+- Replaced the [ESDoc](https://esdoc.org) documentation generator by [TypeDoc](https://typedoc.org).
+- Replaced the [ESLint](https://eslint.org) static analyzer by [TSLint](https://palantir.github.io/tslint).
 - Updated the package dependencies.
 
 ## Version [10.0.0](https://github.com/cedx/free-mobile.js/compare/v9.1.0...v10.0.0)

@@ -15,9 +15,9 @@
 
       /**
        * Sends an SMS notification.
-       * @return {Promise} Completes when the program is terminated.
+       * @return Completes when the program is terminated.
        */
-      async function main() {
+      async function main(): Promise<void> {
         const client = new Client('your account identifier', 'your API key');
         // For example: new Client('12345678', 'a9BkVohJun4MAf')
 
