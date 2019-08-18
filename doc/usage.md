@@ -26,7 +26,7 @@ async function main(): Promise<void> {
 ```
 
 The `Client#sendMessage()` method throws a [`TypeError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
-if the account credentials are invalid or if the specified message is empty. It throws a [`ClientError`](https://github.com/cedx/free-mobile.js/blob/master/lib/http/error.js) if any error occurred while sending the message.
+if the account credentials are invalid or if the specified message is empty. It throws a [`ClientError`](https://github.com/cedx/free-mobile.js/blob/master/src/http/error.ts) if any error occurred while sending the message.
 
 !!! warning
     The text of the messages will be automatically truncated to **160** characters:  

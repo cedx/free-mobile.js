@@ -1,8 +1,7 @@
-import chai from 'chai';
-import {Client, ClientError} from '../lib/index.js';
-import {password, username} from './config.g.js';
+import * as chai from 'chai';
+import {Client, ClientError} from '../src/index';
 
-/** Tests the features of the {@link Client} class. */
+/** Tests the features of the [[Client]] class. */
 describe('Client', function() {
   const {expect} = chai;
   this.timeout(15000); // eslint-disable-line no-invalid-this
@@ -44,6 +43,9 @@ describe('Client', function() {
     });
 
     it('should send valid messages with valid credentials', async () => {
+      const username = process.env.FREEMOBILE_USERNAME!;
+      const password = process.env.FREEMOBILE_PASSWORD!;
+
       try {
         const isBrowser = typeof window != 'undefined' && typeof window.document != 'undefined';
         await new Client(username, password).sendMessage(`Bonjour Cédric, à partir ${isBrowser ? 'd\'un navigateur' : 'de Node.js'} !`);
