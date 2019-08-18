@@ -1,5 +1,5 @@
 path: blob/master
-source: src/client.ts
+source: src/http/mixin.ts
 
 # Usage
 
@@ -36,6 +36,10 @@ if the account credentials are invalid or if the specified message is empty. It 
 The `Client` class is an event emitter that triggers some events during its life cycle.
 
 The [Node.js](https://nodejs.org) instance is implemented as an [`EventEmitter`](https://nodejs.org/api/events.html), while the browser instance is implemented as an [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) that triggers [`CustomEvent`](https://developer.mozilla.org/en-US/docs/Web/API/CustomEvent) objects.
+
+!!! tip
+    If you target browsers that do not support the `EventTarget` constructor, you will need
+    a dedicated polyfill. We recommend using the [`@ungap/event-target`](https://www.npmjs.com/package/@ungap/event-target) package.   
 
 ### The `Client.eventRequest` event
 Emitted every time a request is made to the remote service:
