@@ -1,4 +1,6 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
+
+// @ts-ignore
 import {Client, ClientError} from '@cedx/free-mobile';
 
 /**
