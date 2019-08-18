@@ -1,6 +1,6 @@
 import EventEmitter from 'events';
-import {applyMixins, ClientMixin} from './mixin';
 import {RequestEvent, ResponseEvent} from './events';
+import {ClientMixin} from './mixin';
 
 /** Sends messages by SMS to a [FreeMobile](http://mobile.free.fr) account. */
 export class NodeClient extends EventEmitter {
@@ -44,4 +44,4 @@ export class NodeClient extends EventEmitter {
 
 // Apply the client mixin.
 export interface NodeClient extends ClientMixin {}
-applyMixins(NodeClient, [ClientMixin]);
+Object.defineProperties(NodeClient.prototype, Object.getOwnPropertyDescriptors(ClientMixin.prototype));

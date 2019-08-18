@@ -1,5 +1,5 @@
 import {RequestEvent, ResponseEvent} from './events';
-import {applyMixins, ClientMixin} from './mixin';
+import {ClientMixin} from './mixin';
 
 /** Sends messages by SMS to a [FreeMobile](http://mobile.free.fr) account. */
 export class BrowserClient extends EventTarget {
@@ -43,4 +43,4 @@ export class BrowserClient extends EventTarget {
 
 // Apply the client mixin.
 export interface BrowserClient extends ClientMixin {}
-applyMixins(BrowserClient, [ClientMixin]);
+Object.defineProperties(BrowserClient.prototype, Object.getOwnPropertyDescriptors(ClientMixin.prototype));
