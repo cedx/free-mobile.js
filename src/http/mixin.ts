@@ -8,8 +8,8 @@ import {RequestEvent, ResponseEvent} from './events';
  */
 export function applyMixins(constructor: any, mixins: any[]): void {
   for (const mixin of mixins)
-    for (const name of Object.getOwnPropertyNames(mixin.prototype))
-      Object.defineProperty(constructor.prototype, name, Object.getOwnPropertyDescriptor(mixin.prototype, name)!);
+    for (const [name, descriptor] of Object.entries(Object.getOwnPropertyDescriptors(mixin.prototype)))
+      Object.defineProperty(constructor.prototype, name, descriptor);
 }
 
 /** Provides the base feature of a [FreeMobile](http://mobile.free.fr) client. */
