@@ -42,5 +42,5 @@ export class BrowserClient extends EventTarget {
 }
 
 // Apply the client mixin.
-export interface BrowserClient extends ClientMixin {}
+export interface BrowserClient extends ClientMixin {} // eslint-disable-line @typescript-eslint/no-empty-interface
 Object.defineProperties(BrowserClient.prototype, Object.getOwnPropertyDescriptors(ClientMixin.prototype));

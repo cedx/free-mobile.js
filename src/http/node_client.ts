@@ -43,5 +43,5 @@ export class NodeClient extends EventEmitter {
 }
 
 // Apply the client mixin.
-export interface NodeClient extends ClientMixin {}
+export interface NodeClient extends ClientMixin {} // eslint-disable-line @typescript-eslint/no-empty-interface
 Object.defineProperties(NodeClient.prototype, Object.getOwnPropertyDescriptors(ClientMixin.prototype));
