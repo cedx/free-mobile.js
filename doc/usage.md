@@ -6,7 +6,7 @@ source: src/http/mixin.ts
 ## SMS notifications
 **Free Mobile for JS** provides the `Client` class, which allow to send SMS messages to your mobile phone by using the `sendMessage()` method:
 
-```ts
+```typescript
 import {Client, ClientError} from '@cedx/free-mobile';
 
 async function main(): Promise<void> {
@@ -44,7 +44,7 @@ The [Node.js](https://nodejs.org) instance is implemented as an [`EventEmitter`]
 ### The `Client.eventRequest` event
 Emitted every time a request is made to the remote service:
 
-```ts
+```typescript
 // With Node.js:
 client.on(Client.eventRequest, event =>
   console.log(`Client request: ${event.request.url}`)
@@ -59,7 +59,7 @@ client.addEventListener(Client.eventRequest, event =>
 ### The `Client.eventResponse` event
 Emitted every time a response is received from the remote service:
 
-```ts
+```typescript
 // With Node.js:
 client.on(Client.eventResponse, event =>
   console.log(`Server response: ${event.response.status}`)
