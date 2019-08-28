@@ -47,8 +47,7 @@ describe('Client', function() {
       const password = process.env.FREEMOBILE_PASSWORD!;
 
       try {
-        const isBrowser = typeof window != 'undefined' && typeof window.document != 'undefined';
-        await new Client(username, password).sendMessage(`Bonjour Cédric, à partir ${isBrowser ? 'd\'un navigateur' : 'de Node.js'} !`);
+        await new Client(username, password).sendMessage('Bonjour Cédric, à partir de Node.js !');
         expect(true).to.be.ok;
       }
 
