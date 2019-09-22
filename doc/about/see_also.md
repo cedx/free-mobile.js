@@ -6,7 +6,7 @@
 - [Submit an issue](https://github.com/cedx/free-mobile.js/issues)
 
 ## Testing
-- [Continuous integration](https://travis-ci.com/cedx/free-mobile.js)
+- [Continuous integration](https://github.com/cedx/free-mobile.js/actions)
 - [Code coverage](https://coveralls.io/github/cedx/free-mobile.js)
 
 ## Other implementations
