@@ -1,5 +1,7 @@
 # Changelog
 
+- Replaced [`babel-minify`](https://github.com/babel/minify) by [`terser`](https://terser.org) for minification.
+
 ## Version [12.1.0](https://github.com/cedx/free-mobile.js/compare/v12.0.0...v12.1.0)
 - Due to strong user demand, restored the [TypeScript](https://www.typescriptlang.org) source code.
 - Raised the [Node.js](https://nodejs.org) constraint.
