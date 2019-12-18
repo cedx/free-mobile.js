@@ -1,11 +1,10 @@
-/* eslint-disable no-console, @typescript-eslint/no-unused-vars */
 import {Client, ClientError} from '@cedx/free-mobile';
 
 /**
  * Sends an SMS notification.
- * @return Completes when the program is terminated.
+ * @return {Promise<void>} Completes when the program is terminated.
  */
-async function main(): Promise<void> {
+async function main() {
   try {
     const client = new Client('your account identifier', 'your API key');
     // For example: new Client('12345678', 'a9BkVohJun4MAf')
