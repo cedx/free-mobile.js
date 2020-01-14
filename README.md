@@ -12,6 +12,7 @@ in [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Ty
 
 ## Development
 - [Git repository](https://github.com/cedx/free-mobile.js)
+- [GitHub package](https://github.com/cedx/free-mobile.js/packages)
 - [npm package](https://www.npmjs.com/package/@cedx/free-mobile)
 - [Submit an issue](https://github.com/cedx/free-mobile.js/issues)
 
