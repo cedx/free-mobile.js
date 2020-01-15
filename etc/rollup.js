@@ -1,5 +1,5 @@
 export default {
-  input: '../lib/browser.js',
+  input: 'lib/browser.js',
   output: {
     file: 'build/free-mobile.js',
     format: 'iife',
