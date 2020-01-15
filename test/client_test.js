@@ -1,10 +1,10 @@
-import * as chai from 'chai';
-import {Client, ClientError} from '../src/index';
+import chai from 'chai';
+import {Client, ClientError} from '../lib/index.js';
 
-/** Tests the features of the [[Client]] class. */
+/** Tests the features of the {@link Client} class. */
 describe('Client', function() {
   const {expect} = chai;
-  this.timeout(15000); // eslint-disable-line no-invalid-this
+  this.timeout(15000);
 
   describe('constructor', () => {
     it('should throw an error if the credentials are invalid', async () => {
@@ -43,8 +43,8 @@ describe('Client', function() {
     });
 
     it('should send valid messages with valid credentials', async () => {
-      const username = process.env.FREEMOBILE_USERNAME!;
-      const password = process.env.FREEMOBILE_PASSWORD!;
+      const username = process.env.FREEMOBILE_USERNAME;
+      const password = process.env.FREEMOBILE_PASSWORD;
 
       try {
         await new Client(username, password).sendMessage('Bonjour Cédric, à partir de Node.js !');
