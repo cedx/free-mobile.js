@@ -1,5 +1,5 @@
 /// <reference types="node" />
-import EventEmitter from 'events';
+import { EventEmitter } from 'events';
 import { RequestEvent, ResponseEvent } from './events';
 import { ClientMixin } from './mixin';
 /** Sends messages by SMS to a [FreeMobile](http://mobile.free.fr) account. */
