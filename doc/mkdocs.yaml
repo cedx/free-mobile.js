@@ -3,7 +3,7 @@ site_description: Send SMS messages to your Free Mobile account, in JavaScript.
 site_author: Cédric Belin - cedric@belin.io
 site_url: https://dev.belin.io/free-mobile.js
 
-docs_dir: ../doc
+docs_dir: .
 site_dir: ../web
 
 repo_name: GitHub
