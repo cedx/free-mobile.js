@@ -19,7 +19,7 @@ describe('Client', function() {
     });
   });
 
-  describe('#sendMessage()', () => {
+  describe('.sendMessage()', () => {
     it('should not send invalid messages', async () => {
       try {
         await new Client('anonymous', 'secret').sendMessage('');
