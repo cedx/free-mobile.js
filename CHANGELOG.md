@@ -79,7 +79,7 @@
 ## Version [7.0.0](https://github.com/cedx/free-mobile.js/compare/v6.2.0...v7.0.0)
 - Breaking change: converted the [`Observable`](http://reactivex.io/intro.html)-based API to an `async/await`-based one.
 - Breaking change: converted the `Subject` event API to the [`EventEmitter`](https://nodejs.org/api/events.html) one.
-- Added the [`#[Symbol.toStringTag]`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) property to all classes.
+- Added the [`[Symbol.toStringTag]`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) property to all classes.
 - Changed licensing for the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Version [6.2.0](https://github.com/cedx/free-mobile.js/compare/v6.1.0...v6.2.0)
@@ -101,7 +101,7 @@
 
 ## Version [5.0.0](https://github.com/cedx/free-mobile.js/compare/v4.1.0...v5.0.0)
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
-- Breaking change: the `Client#endPoint` property is now an instance of the [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) class.
+- Breaking change: the `Client.endPoint` property is now an instance of the [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) class.
 - Updated the package dependencies.
 
 ## Version [4.1.0](https://github.com/cedx/free-mobile.js/compare/v4.0.0...v4.1.0)

@@ -25,7 +25,7 @@ async function main() {
 }
 ```
 
-The `Client#sendMessage()` method throws a [`TypeError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
+The `Client.sendMessage()` method throws a [`TypeError`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/TypeError)
 if the account credentials are invalid or if the specified message is empty. It throws a [`ClientError`](https://github.com/cedx/free-mobile.js/blob/master/src/http/error.ts) if any error occurred while sending the message.
 
 !!! warning
