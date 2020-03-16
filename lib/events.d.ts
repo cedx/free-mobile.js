@@ -1,3 +1,4 @@
+import { Request, Response } from 'node-fetch';
 /** Represents the event parameter used for request events. */
 export declare class RequestEvent {
     readonly request: Request;
