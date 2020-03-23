@@ -1,5 +1,9 @@
 # Changelog
 
+## Version [13.0.0](https://github.com/cedx/free-mobile.js/compare/v12.2.0...v13.0.0)
+- Breaking change: dropped the browser client.
+- Updated the package dependencies.
+
 ## Version [12.2.0](https://github.com/cedx/free-mobile.js/compare/v12.1.0...v12.2.0)
 - Replaced [`babel-minify`](https://github.com/babel/minify) by [`terser`](https://terser.org) for minification.
 - Updated the package dependencies.
