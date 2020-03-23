@@ -1,6 +1,5 @@
 import {EventEmitter} from 'events';
 import fetch from 'node-fetch';
-import {RequestEvent, ResponseEvent} from './events';
 
 /** An exception caused by an error in a [[Client]] request. */
 export class ClientError extends Error {
@@ -62,13 +61,13 @@ export class Client extends EventEmitter {
     // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
     // @ts-ignore: `fetch` has wrong typings.
     const request = new fetch.Request(url.href);
-    this.emit('request', new RequestEvent(request));
+    this.emit(Client.eventRequest, request);
 
     let response;
     try { response = await fetch(request); }
     catch (err) { throw new ClientError(err.message, url); }
 
-    this.emit('response', new ResponseEvent(response, request));
+    this.emit(Client.eventResponse, response, request);
     if (!response.ok) throw new ClientError('An error occurred while querying the end point.', url);
   }
 }
