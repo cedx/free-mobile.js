@@ -45,15 +45,8 @@ describe('Client', function() {
     it('should send valid messages with valid credentials', async () => {
       const username = process.env.FREEMOBILE_USERNAME;
       const password = process.env.FREEMOBILE_PASSWORD;
-
-      try {
-        await new Client(username, password).sendMessage('Bonjour Cédric, à partir de Node.js !');
-        expect(true).to.be.ok;
-      }
-
-      catch (err) {
-        expect(err).to.be.an.instanceof(ClientError);
-      }
+      try { await new Client(username, password).sendMessage('Bonjour Cédric, à partir de Node.js !'); }
+      catch (err) { expect.fail(err.message); }
     });
   });
 });
