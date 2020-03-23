@@ -39,8 +39,8 @@ The `Client` class is an [`EventEmitter`](https://nodejs.org/api/events.html) th
 Emitted every time a request is made to the remote service:
 
 ```js
-client.on(Client.eventRequest, event =>
-  console.log(`Client request: ${event.request.url}`)
+client.on(Client.eventRequest, request =>
+  console.log(`Client request: ${request.url}`)
 );
 ```
 
@@ -48,7 +48,7 @@ client.on(Client.eventRequest, event =>
 Emitted every time a response is received from the remote service:
 
 ```js
-client.on(Client.eventResponse, event =>
-  console.log(`Server response: ${event.response.status}`)
+client.on(Client.eventResponse, response =>
+  console.log(`Server response: ${response.status}`)
 );
 ```
