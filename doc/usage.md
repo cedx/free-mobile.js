@@ -48,7 +48,7 @@ client.on(Client.eventRequest, request =>
 Emitted every time a response is received from the remote service:
 
 ```js
-client.on(Client.eventResponse, response =>
+client.on(Client.eventResponse, (response, request) =>
   console.log(`Server response: ${response.status}`)
 );
 ```
