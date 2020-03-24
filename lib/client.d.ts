@@ -12,8 +12,8 @@ export declare class ClientError extends Error {
 }
 /** Sends messages by SMS to a [FreeMobile](http://mobile.free.fr) account. */
 export declare class Client extends EventEmitter {
-    username: string;
-    password: string;
+    readonly username: string;
+    readonly password: string;
     readonly endPoint: URL;
     /**
      * An event that is triggered when a request is made to the remote service.

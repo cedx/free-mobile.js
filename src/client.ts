@@ -37,7 +37,7 @@ export class Client extends EventEmitter {
    * @param endPoint The URL of the API end point.
    * @throws [[TypeError]] The account credentials are invalid.
    */
-  constructor(public username: string, public password: string, readonly endPoint = new URL('https://smsapi.free-mobile.fr/')) {
+  constructor(readonly username: string, readonly password: string, readonly endPoint = new URL('https://smsapi.free-mobile.fr/')) {
     super();
     if (!this.password.length || !this.username.length) throw new TypeError('The account credentials are invalid.');
   }
