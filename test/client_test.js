@@ -17,7 +17,7 @@ describe('Client', function() {
     });
 
     it('should reject if a network error occurred', () => {
-      const endPoint = new URL('http://localhost/');
+      const endPoint = new URL('http://localhost:10000/');
       assert.rejects(new Client('anonymous', 'secret', endPoint).sendMessage('Bonjour Cédric !'), ClientError);
     });
 
