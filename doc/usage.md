@@ -39,16 +39,26 @@ The `Client` class is an [`EventEmitter`](https://nodejs.org/api/events.html) th
 Emitted every time a request is made to the remote service:
 
 ```js
-client.on(Client.eventRequest, request =>
-  console.log(`Client request: ${request.url}`)
-);
+import {Client} from '@cedx/free-mobile';
+
+function main() {
+  const client = new Client('your account identifier', 'your API key');
+  client.on(Client.eventRequest, request =>
+    console.log(`Client request: ${request.url}`)
+  );
+}
 ```
 
 ### The `Client.eventResponse` event
 Emitted every time a response is received from the remote service:
 
 ```js
-client.on(Client.eventResponse, (response, request) =>
-  console.log(`Server response: ${response.status}`)
-);
+import {Client} from '@cedx/free-mobile';
+
+function main() {
+  const client = new Client('your account identifier', 'your API key');
+  client.on(Client.eventResponse, (response, request) =>
+    console.log(`Server response: ${response.status}`)
+  );
+}
 ```
