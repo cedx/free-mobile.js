@@ -7,14 +7,13 @@ in [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript) and [Ty
 > This library is packaged as [ECMAScript modules](https://nodejs.org/api/esm.html).
 
 ## Documentation
-- [User guide](https://dev.belin.io/free-mobile.js)
-- [API reference](https://dev.belin.io/free-mobile.js/api)
+- [User guide](https://docs.belin.io/free-mobile.js)
+- [API reference](https://api.belin.io/free-mobile.js)
 
 ## Development
-- [Git repository](https://github.com/cedx/free-mobile.js)
-- [GitHub package](https://github.com/cedx/free-mobile.js/packages)
+- [Git repository](https://git.belin.io/cedx/free-mobile.js)
 - [npm package](https://www.npmjs.com/package/@cedx/free-mobile)
-- [Submit an issue](https://github.com/cedx/free-mobile.js/issues)
+- [Submit an issue](https://git.belin.io/cedx/free-mobile.js/issues)
 
 ## License
-[Free Mobile for JS](https://dev.belin.io/free-mobile.js) is distributed under the MIT License.
+[Free Mobile for JS](https://docs.belin.io/free-mobile.js) is distributed under the MIT License.

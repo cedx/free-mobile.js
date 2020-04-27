@@ -1,5 +1,7 @@
-path: blob/master
+---
+path: src/branch/master
 source: src/client.ts
+---
 
 # Usage
 
