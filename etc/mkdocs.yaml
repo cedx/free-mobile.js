@@ -1,5 +1,7 @@
 site_name: Free Mobile for JS
-site_description: Send SMS messages to your Free Mobile account, in JavaScript.
+site_description: >
+  Send SMS messages to your Free Mobile account, in JavaScript.
+  A simple and free way to monitor your applications using a Free Mobile account.
 site_author: Cédric Belin - cedric@belin.io
 site_url: https://docs.belin.io/free-mobile.js
 
