@@ -30,7 +30,7 @@ export declare class Client extends EventEmitter {
      * @param username The user name associated to the account.
      * @param password The identification key associated to the account.
      * @param endPoint The URL of the API end point.
-     * @throws [[TypeError]] The account credentials are invalid.
+     * @throws `TypeError` The account credentials are invalid.
      */
     constructor(username: string, password: string, endPoint?: URL);
     /**
@@ -38,7 +38,7 @@ export declare class Client extends EventEmitter {
      * @param text The text of the message to send.
      * @return Completes when the operation is done.
      * @throws [[ClientError]] An error occurred while fetching the server response.
-     * @throws [[TypeError]] The specified message is empty.
+     * @throws `TypeError` The specified message is empty.
      */
     sendMessage(text: string): Promise<void>;
 }

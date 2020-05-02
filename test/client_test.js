@@ -1,7 +1,7 @@
 import {strict as assert} from 'assert';
 import {Client, ClientError} from '../lib/index.js';
 
-/** Tests the features of the {@link Client} class. */
+/** Tests the features of the `Client` class. */
 describe('Client', function() {
   this.timeout(15000);
 
