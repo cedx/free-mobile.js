@@ -58,8 +58,7 @@ export class Client extends EventEmitter {
     url.searchParams.set('pass', this.password);
     url.searchParams.set('user', this.username);
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-ignore
-    // @ts-ignore: `fetch` has wrong typings.
+    // @ts-expect-error: `fetch` has wrong typings.
     const request = new fetch.Request(url.href);
     this.emit(Client.eventRequest, request);
 
