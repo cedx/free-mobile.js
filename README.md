@@ -1,5 +1,5 @@
 # Free Mobile for JS
-![Runtime](https://img.shields.io/node/v/@cedx/free-mobile.svg) ![Release](https://img.shields.io/npm/v/@cedx/free-mobile.svg) ![License](https://img.shields.io/npm/l/@cedx/free-mobile.svg) ![Downloads](https://img.shields.io/npm/dt/@cedx/free-mobile.svg) ![Dependencies](https://david-dm.org/cedx/free-mobile.js.svg) ![Coverage](https://coveralls.io/repos/github/cedx/free-mobile.js/badge.svg) ![Build](https://github.com/cedx/free-mobile.js/workflows/build/badge.svg)
+![Runtime](https://badgen.net/npm/node/@cedx/free-mobile) ![Release](https://badgen.net/npm/v/@cedx/free-mobile) ![License](https://badgen.net/npm/license/@cedx/free-mobile) ![Downloads](https://badgen.net/npm/dt/@cedx/free-mobile) ![Dependencies](https://badgen.net/david/dep/cedx/free-mobile.js) ![Coverage](https://badgen.net/coveralls/c/github/cedx/free-mobile.js) ![Build](https://badgen.net/github/checks/cedx/free-mobile.js)
 
 Send SMS messages to your [Free Mobile](http://mobile.free.fr) account,
 in [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
