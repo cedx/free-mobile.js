@@ -15,7 +15,7 @@ export class ClientError extends Error {
 	}
 }
 
-/** Sends messages by SMS to a [FreeMobile](http://mobile.free.fr) account. */
+/** Sends messages by SMS to a [FreeMobile](https://mobile.free.fr) account. */
 export class Client extends EventEmitter {
 
 	/**

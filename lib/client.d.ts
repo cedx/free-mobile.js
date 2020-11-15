@@ -10,7 +10,7 @@ export declare class ClientError extends Error {
      */
     constructor(message?: string, uri?: URL | undefined);
 }
-/** Sends messages by SMS to a [FreeMobile](http://mobile.free.fr) account. */
+/** Sends messages by SMS to a [FreeMobile](https://mobile.free.fr) account. */
 export declare class Client extends EventEmitter {
     readonly username: string;
     readonly password: string;
