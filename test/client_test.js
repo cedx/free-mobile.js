@@ -12,7 +12,7 @@ describe("Client", /** @this {Mocha.Suite} */ function() {
 			assert.rejects(new Client("anonymous", "secret", "http://localhost:10000/").sendMessage("Hello World!"));
 		});
 
-		it("it should reject if the credentials are invalid", () => {
+		it("should reject if the credentials are invalid", () => {
 			assert.rejects(new Client("anonymous", "secret").sendMessage("Hello World!"));
 		});
 

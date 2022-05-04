@@ -1,5 +1,11 @@
 # Changelog
 
+## Version [15.0.0](https://github.com/cedx/free-mobile.js/compare/v14.0.0...v15.0.0)
+- Breaking change: raised the required [Node.js](https://nodejs.org) version.
+- Breaking change: removed the `ClientError` class.
+- Breaking change: the `Client` class is no longer an event emitter. 
+- Ported the source code to [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
+
 ## Version [14.0.0](https://github.com/cedx/free-mobile.js/compare/v13.0.1...v14.0.0)
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
 - Dropped support for [GitHub Packages](https://github.com/features/packages).
