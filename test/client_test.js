@@ -5,7 +5,7 @@ import {Client} from "../lib/index.js";
  * Tests the features of the {@link Client} class.
  */
 describe("Client", /** @this {Mocha.Suite} */ function() {
-	this.timeout(15000);
+	this.timeout(15_000);
 
 	describe(".sendMessage()", () => {
 		it("should reject if a network error occurred", () => {
