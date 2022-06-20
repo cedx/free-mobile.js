@@ -14,6 +14,6 @@ test(".sendMessage()", async ctx => {
 	await ctx.test("should send SMS messages if the credentials are valid", () => {
 		const account = process.env.FREEMOBILE_ACCOUNT ?? "";
 		const apiKey = process.env.FREEMOBILE_API_KEY ?? "";
-		assert.doesNotReject(new Client(account, apiKey).sendMessage("Hello Cédric, from Node.js !"));
+		return assert.doesNotReject(new Client(account, apiKey).sendMessage("Hello Cédric, from Node.js !"));
 	});
 });
