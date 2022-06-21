@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import {env} from "node:process";
 import test from "node:test";
 import {Client} from "../lib/index.js";
 
@@ -12,8 +13,8 @@ test(".sendMessage()", async ctx => {
 	});
 
 	await ctx.test("should send SMS messages if the credentials are valid", () => {
-		const account = process.env.FREEMOBILE_ACCOUNT ?? "";
-		const apiKey = process.env.FREEMOBILE_API_KEY ?? "";
+		const account = env.FREEMOBILE_ACCOUNT ?? "";
+		const apiKey = env.FREEMOBILE_API_KEY ?? "";
 		return assert.doesNotReject(new Client(account, apiKey).sendMessage("Hello Cédric, from Node.js !"));
 	});
 });
