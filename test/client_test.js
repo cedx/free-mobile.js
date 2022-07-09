@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import {env} from "node:process";
 import test from "node:test";
-import {Client} from "../lib/index.js";
+import {Client} from "../src/index.js";
 
 test(".sendMessage()", async ctx => {
 	await ctx.test("should reject if a network error occurred", () => {

@@ -1,13 +1,13 @@
 {
 	"bugs": "https://github.com/cedx/free-mobile.js/issues",
 	"description": "Send SMS messages to your Free Mobile device.",
-	"exports": "./lib/index.js",
+	"exports": "./src/index.js",
 	"homepage": "https://github.com/cedx/free-mobile.js",
 	"license": "MIT",
 	"name": "@cedx/free-mobile",
 	"repository": "github:cedx/free-mobile.js",
 	"type": "module",
-	"types": "./share/index.d.ts",
+	"types": "./lib/index.d.ts",
 	"version": "15.0.0",
 	"author": {
 		"email": "cedric@belin.io",
@@ -32,7 +32,7 @@
 	},
 	"files": [
 		"lib/",
-		"share/"
+		"src/"
 	],
 	"funding": {
 		"type": "github",
@@ -47,6 +47,6 @@
 	],
 	"scripts": {
 		"prepack": "gulp",
-		"test": "c8 --all --include=lib/**/*.js --report-dir=var --reporter=lcovonly node --test"
+		"test": "c8 --all --include=src/**/*.js --report-dir=var --reporter=lcovonly node --test"
 	}
 }
