@@ -1,6 +1,5 @@
 import assert from "node:assert/strict";
 import {env} from "node:process";
-// @ts-expect-error TS2614
 import {describe, it} from "node:test";
 import {Client} from "../src/index.js";
 
