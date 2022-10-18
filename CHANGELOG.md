@@ -1,10 +1,13 @@
 # Changelog
 
+## Version [15.0.1](https://github.com/cedx/free-mobile.js/compare/v15.0.0...v15.0.1)
+- Fixed the [TypeScript](https://www.typescriptlang.org) typings.
+
 ## Version [15.0.0](https://github.com/cedx/free-mobile.js/compare/v14.0.0...v15.0.0)
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
 - Breaking change: removed the `ClientError` class.
 - Breaking change: the `Client` class is no longer an event emitter. 
-- Ported the source code to [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
+- Ported the source code to [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript).
 
 ## Version [14.0.0](https://github.com/cedx/free-mobile.js/compare/v13.0.1...v14.0.0)
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
@@ -32,8 +35,8 @@
 ## Version [12.0.0](https://github.com/cedx/free-mobile.js/compare/v11.5.0...v12.0.0)
 - Breaking change: dropped support for [CommonJS modules](https://nodejs.org/api/modules.html).
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
-- Breaking change: reverted the source code to [JavaScript](https://developer.mozilla.org/en-US/docs/Web/JavaScript).
-- Breaking change: the browser client is now an [`EventTarget`](https://developer.mozilla.org/en-US/docs/Web/API/EventTarget) instead of an [`EventEmitter`](https://nodejs.org/api/events.html).
+- Breaking change: reverted the source code to [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript).
+- Breaking change: the browser client is now an [`EventTarget`](https://developer.mozilla.org/docs/Web/API/EventTarget) instead of an [`EventEmitter`](https://nodejs.org/api/events.html).
 - Replaced the [TypeDoc](https://typedoc.org) documentation generator by [JSDoc](https://jsdoc.app).
 - Replaced the [TSLint](https://palantir.github.io/tslint) static analyzer by [ESLint](https://eslint.org).
 - Updated the package dependencies.
@@ -99,7 +102,7 @@
 ## Version [7.0.0](https://github.com/cedx/free-mobile.js/compare/v6.2.0...v7.0.0)
 - Breaking change: converted the [`Observable`](http://reactivex.io/intro.html)-based API to an `async/await`-based one.
 - Breaking change: converted the `Subject` event API to the [`EventEmitter`](https://nodejs.org/api/events.html) one.
-- Added the [`[Symbol.toStringTag]`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) property to all classes.
+- Added the [`[Symbol.toStringTag]`](https://developer.mozilla.org/docs/Web/JavaScript/Reference/Global_Objects/Symbol/toStringTag) property to all classes.
 - Changed licensing for the [MIT License](https://opensource.org/licenses/MIT).
 
 ## Version [6.2.0](https://github.com/cedx/free-mobile.js/compare/v6.1.0...v6.2.0)
@@ -121,7 +124,7 @@
 
 ## Version [5.0.0](https://github.com/cedx/free-mobile.js/compare/v4.1.0...v5.0.0)
 - Breaking change: raised the required [Node.js](https://nodejs.org) version.
-- Breaking change: the `Client.endPoint` property is now an instance of the [`URL`](https://developer.mozilla.org/en-US/docs/Web/API/URL) class.
+- Breaking change: the `Client.endPoint` property is now an instance of the [`URL`](https://developer.mozilla.org/docs/Web/API/URL) class.
 - Updated the package dependencies.
 
 ## Version [4.1.0](https://github.com/cedx/free-mobile.js/compare/v4.0.0...v4.1.0)
