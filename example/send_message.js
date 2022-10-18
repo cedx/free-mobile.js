@@ -9,7 +9,6 @@ try {
 	await client.sendMessage("Hello World from Node.js!");
 	console.log("The message was sent successfully.");
 }
-
 catch (error) {
 	console.log(`An error occurred: ${error}`);
 }
