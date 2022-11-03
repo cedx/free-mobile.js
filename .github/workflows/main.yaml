@@ -1,8 +1,5 @@
 name: main
 on: push
-env:
-  FREEMOBILE_ACCOUNT: ${{secrets.FREEMOBILE_ACCOUNT}}
-  FREEMOBILE_API_KEY: ${{secrets.FREEMOBILE_API_KEY}}
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -18,6 +15,9 @@ jobs:
         run: npm install
       - name: Run tests
         run: npm test
+        env:
+          FREEMOBILE_ACCOUNT: ${{secrets.FREEMOBILE_ACCOUNT}}
+          FREEMOBILE_API_KEY: ${{secrets.FREEMOBILE_API_KEY}}
       - name: Collect code coverage
         if: success()
         uses: codecov/codecov-action@v3
