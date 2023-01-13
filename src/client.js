@@ -49,8 +49,8 @@ export class Client {
 
 		const response = await fetch(url);
 		if (!response.ok) switch (Math.trunc(response.status / 100)) {
-			case 4: throw new Error("The provided credentials are invalid.");
-			default: throw new Error("An error occurred while sending the message.");
+			case 4: throw Error("The provided credentials are invalid.");
+			default: throw Error("An error occurred while sending the message.");
 		}
 	}
 }
