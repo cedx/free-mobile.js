@@ -36,6 +36,12 @@
 		"lib/",
 		"src/"
 	],
+	"imports": {
+		"#free_mobile": {
+			"types": "./lib/index.d.ts",
+			"import": "./src/index.js"
+		}
+	},
 	"keywords": [
 		"api",
 		"client",

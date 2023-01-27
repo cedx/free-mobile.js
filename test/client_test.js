@@ -1,7 +1,7 @@
 import assert from "node:assert/strict";
 import {env} from "node:process";
 import {describe, it} from "node:test";
-import {Client} from "../src/index.js";
+import {Client} from "#free_mobile";
 
 /**
  * Tests the features of the {@link Client} class.
