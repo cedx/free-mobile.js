@@ -7,7 +7,7 @@ import {Client} from "#free_mobile";
  * Tests the features of the {@link Client} class.
  */
 describe("Client", () => {
-	describe(".sendMessage()", () => {
+	describe("sendMessage()", () => {
 		it("should reject if a network error occurred", () => {
 			assert.rejects(new Client("anonymous", "secret", "http://localhost:10000/").sendMessage("Hello World!"));
 		});
