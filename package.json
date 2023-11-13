@@ -1,7 +1,7 @@
 {
 	"bugs": "https://github.com/cedx/free-mobile.js/issues",
 	"description": "Send SMS messages to your Free Mobile device.",
-	"homepage": "https://docs.belin.io/free-mobile.js",
+	"homepage": "https://cedx.github.io/free-mobile.js",
 	"license": "MIT",
 	"name": "@cedx/free-mobile",
 	"repository": "cedx/free-mobile.js",
