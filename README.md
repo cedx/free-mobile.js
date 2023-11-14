@@ -14,4 +14,4 @@ in [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript).
 - [Submit an issue](https://github.com/cedx/free-mobile.js/issues)
 
 ## License
-[Free Mobile for JS](https://cedx.github.io/free-mobile.js) is distributed under the MIT License.
+[Free Mobile for JS](https://github.com/cedx/free-mobile.js) is distributed under the MIT License.
