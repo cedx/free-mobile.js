@@ -33,7 +33,7 @@ export class Client {
 	constructor(account, apiKey, baseUrl = "https://smsapi.free-mobile.fr") {
 		this.account = account;
 		this.apiKey = apiKey;
-		this.baseUrl = new URL(baseUrl.slice(-1) == "/" ? baseUrl : `${baseUrl}/`);
+		this.baseUrl = new URL(baseUrl.endsWith("/") ? baseUrl : `${baseUrl}/`);
 	}
 
 	/**
