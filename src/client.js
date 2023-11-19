@@ -30,10 +30,10 @@ export class Client {
 	 * @param {string} apiKey The Free Mobile API key.
 	 * @param {string} [baseUrl] The base URL of the remote API endpoint.
 	 */
-	constructor(account, apiKey, baseUrl = "https://smsapi.free-mobile.fr/") {
+	constructor(account, apiKey, baseUrl = "https://smsapi.free-mobile.fr") {
 		this.account = account;
 		this.apiKey = apiKey;
-		this.baseUrl = new URL(baseUrl);
+		this.baseUrl = new URL(baseUrl.slice(-1) == "/" ? baseUrl : `${baseUrl}/`);
 	}
 
 	/**
