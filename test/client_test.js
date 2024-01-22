@@ -1,4 +1,4 @@
-import assert from "node:assert/strict";
+import {equal} from "node:assert/strict";
 import {env} from "node:process";
 import {describe, it} from "node:test";
 import {Client} from "#free_mobile";
