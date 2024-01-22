@@ -24,7 +24,6 @@
 		"sourceType": "module"
 	},
 	"plugins": ["@typescript-eslint"],
-	"root": true,
 	"rules": {
 		"array-callback-return": "error",
 		"no-await-in-loop": "off",
