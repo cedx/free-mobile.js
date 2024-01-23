@@ -18,8 +18,3 @@ jobs:
         env:
           FREEMOBILE_ACCOUNT: ${{secrets.FREEMOBILE_ACCOUNT}}
           FREEMOBILE_API_KEY: ${{secrets.FREEMOBILE_API_KEY}}
-      - name: Collect code coverage
-        if: success()
-        uses: codecov/codecov-action@v3
-        with:
-          files: var/lcov.info

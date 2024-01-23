@@ -45,4 +45,3 @@ The `Client.sendMessage()` method returns a `Promise` that resolves when the mes
 ## See also
 - [API reference](api/)
 - [npm package](https://www.npmjs.com/package/@cedx/free-mobile)
-- [Code coverage](https://app.codecov.io/gh/cedx/free-mobile.js)
