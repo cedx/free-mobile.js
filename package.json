@@ -32,7 +32,7 @@
 		"src/"
 	],
 	"imports": {
-		"#free_mobile": {
+		"#freeMobile": {
 			"types": "./lib/index.d.ts",
 			"import": "./lib/index.js"
 		}
