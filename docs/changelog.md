@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [15.1.0](https://github.com/cedx/free-mobile.js/compare/v15.0.1...v15.1.0)
+- Ported the source code to [TypeScript](https://www.typescriptlang.org).
+
 ## Version [15.0.1](https://github.com/cedx/free-mobile.js/compare/v15.0.0...v15.0.1)
 - Fixed the [TypeScript](https://www.typescriptlang.org) typings.
 
