@@ -24,7 +24,7 @@ For detailed instructions, see the [installation guide](installation.md).
 ## Usage
 This library provides the `Client` class, which allow to send SMS messages to your mobile phone by using the `sendMessage()` method:
 
-```javascript
+```js
 import console from "node:console";
 import {Client} from "@cedx/free-mobile";
 
