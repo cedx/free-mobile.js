@@ -1,9 +1,7 @@
 import console from "node:console";
 import {Client} from "@cedx/free-mobile";
 
-/**
- * Sends an SMS notification.
- */
+// Sends an SMS notification.
 try {
 	const client = new Client("your account identifier", "your API key");
 	await client.sendMessage("Hello World from Node.js!");
