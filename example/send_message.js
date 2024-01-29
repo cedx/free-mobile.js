@@ -8,5 +8,6 @@ try {
 	console.log("The message was sent successfully.");
 }
 catch (error) {
-	console.log(`An error occurred: ${error}`);
+	const message = error instanceof Error ? error.message : String(error);
+	console.log(`An error occurred: ${message}`);
 }
