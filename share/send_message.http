@@ -1,0 +1,5 @@
+### Sends a SMS message to the specified Free Mobile account.
+GET {{apiUrl}}/sendmsg ?
+  user = {{freemobileAccount}} &
+  pass = {{freemobileApiKey}} &
+  msg = Hello World!
