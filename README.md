@@ -5,8 +5,8 @@ Send SMS messages to your [Free Mobile](https://mobile.free.fr) account,
 in [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript).
 
 ## Documentation
-- [User guide](https://cedx.github.io/free-mobile.js)
-- [API reference](https://cedx.github.io/free-mobile.js/api)
+- [User guide](https://docs.belin.io/free-mobile.js)
+- [API reference](https://docs.belin.io/free-mobile.js/api)
 
 ## Development
 - [Git repository](https://github.com/cedx/free-mobile.js)
