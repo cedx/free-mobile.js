@@ -15,7 +15,7 @@ This will give you an identification key allowing access to the [Free Mobile](ht
 ### Get the library
 Install the latest version of **Free Mobile for JS** with [npm](https://www.npmjs.com) package manager:
 
-```shell
+``` shell
 npm install @cedx/free-mobile
 ```
 
@@ -24,7 +24,7 @@ For detailed instructions, see the [installation guide](installation.md).
 ## Usage
 This library provides the `Client` class, which allow to send SMS messages to your mobile phone by using the `sendMessage()` method:
 
-```js
+``` js
 import console from "node:console";
 import {Client} from "@cedx/free-mobile";
 
