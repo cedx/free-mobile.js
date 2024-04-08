@@ -1,0 +1,57 @@
+site_name: Free Mobile for JS
+site_url: https://docs.belin.io/free-mobile.js
+site_author: Cédric Belin - cedric@belin.io
+site_description: Send SMS messages to your Free Mobile device, in JavaScript.
+
+docs_dir: ../docs
+site_dir: ../www
+use_directory_urls: false
+
+edit_uri: edit/main/docs/
+repo_name: cedx/free-mobile.js
+repo_url: https://github.com/cedx/free-mobile.js
+
+copyright: Copyright &copy; Cédric Belin
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/cedx
+      name: GitHub
+    - icon: fontawesome/brands/linkedin
+      link: https://linkedin.com/in/cedxbelin
+      name: LinkedIn
+    - icon: fontawesome/brands/mastodon
+      link: https://mastodon.social/@cedx
+      name: Mastodon
+
+extra_css:
+  - styles.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.superfences
+
+nav:
+  - Home: index.md
+  - Installation: installation.md
+  - API reference: api/
+  - See also:
+      - Changelog: changelog.md
+      - License: license.md
+
+theme:
+  favicon: favicon.svg
+  features:
+    - content.code.copy
+    - content.tooltips
+    - navigation.footer
+    - navigation.instant
+    - navigation.instant.progress
+    - navigation.sections
+    - search.suggest
+  font: false
+  logo: favicon.svg
+  name: material
+  palette:
+    accent: yellow
+    primary: yellow

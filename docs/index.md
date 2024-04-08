@@ -4,7 +4,8 @@ Send SMS messages to your [Free Mobile](https://mobile.free.fr) device via any i
 For example, you can configure a control panel or storage connected to your home network to send a notification to your mobile phone when an event occurs.
 
 ## Quick start
-> SMS notifications require an API key. If you are not already registered, [sign up for a Free Mobile account](https://mobile.free.fr/subscribe).
+!!! note
+    SMS notifications require an API key. If you are not already registered, [sign up for a Free Mobile account](https://mobile.free.fr/subscribe).
 
 ### Get an API key
 You first need to enable the **SMS notifications** in [your subscriber account](https://mobile.free.fr/account).
@@ -41,8 +42,6 @@ catch (error) {
 
 The `Client.sendMessage()` method returns a `Promise` that resolves when the message has been sent.
 
-> The text of the messages will be automatically truncated to **160** characters: you can't send multipart messages using this library.
-
-## See also
-- [API reference](api/)
-- [npm package](https://www.npmjs.com/package/@cedx/free-mobile)
+!!! warning
+    The text of the messages will be automatically truncated to **160** characters:  
+    you can't send multipart messages using this library.
