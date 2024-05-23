@@ -48,7 +48,7 @@ export class Client {
 		url.searchParams.set("pass", this.apiKey);
 		url.searchParams.set("user", this.account);
 
-		const response = await fetch(url);
+		const response = await fetch(url, {headers: {"user-agent": navigator.userAgent}});
 		if (!response.ok) switch (Math.trunc(response.status / 100)) {
 			case 4: throw Error("The provided credentials are invalid.");
 			default: throw Error("An error occurred while sending the message.");
