@@ -43,12 +43,8 @@ export class Client {
 	 * @returns {Promise<void>} Resolves when the message has been sent.
 	 */
 	async sendMessage(message) {
-		const url = new URL("sendmsg", this.baseUrl);
-		url.searchParams.set("msg", message.trim().slice(0, 160));
-		url.searchParams.set("pass", this.apiKey);
-		url.searchParams.set("user", this.account);
-
-		const response = await fetch(url, {headers: {"user-agent": navigator.userAgent}});
+		const query = new URLSearchParams({msg: message.trim().slice(0, 160), pass: this.apiKey, user: this.account});
+		const response = await fetch(new URL(`sendmsg?${query}`, this.baseUrl), {headers: {"user-agent": navigator.userAgent}});
 		if (!response.ok) switch (Math.trunc(response.status / 100)) {
 			case 4: throw Error("The provided credentials are invalid.");
 			default: throw Error("An error occurred while sending the message.");
