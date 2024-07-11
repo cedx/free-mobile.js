@@ -9,8 +9,8 @@
 	"rest-client.environmentVariables": {
 		"development": {
 			"apiUrl": "https://smsapi.free-mobile.fr",
-			"freemobileAccount": "",
-			"freemobileApiKey": ""
+			"password": "FREEMOBILE_API_KEY",
+			"username": "FREEMOBILE_ACCOUNT"
 		}
 	}
 }
