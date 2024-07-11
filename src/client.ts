@@ -5,32 +5,26 @@ export class Client {
 
 	/**
 	 * The Free Mobile account.
-	 * @type {string}
-	 * @readonly
 	 */
-	account;
+	readonly account: string;
 
 	/**
 	 * The Free Mobile API key.
-	 * @type {string}
-	 * @readonly
 	 */
-	apiKey;
+	readonly apiKey: string;
 
 	/**
 	 * The base URL of the remote API endpoint.
-	 * @type {URL}
-	 * @readonly
 	 */
-	baseUrl;
+	readonly baseUrl: URL;
 
 	/**
 	 * Creates a new client.
-	 * @param {string} account The Free Mobile account.
-	 * @param {string} apiKey The Free Mobile API key.
-	 * @param {string|URL} baseUrl The base URL of the remote API endpoint.
+	 * @param account The Free Mobile account.
+	 * @param apiKey The Free Mobile API key.
+	 * @param baseUrl The base URL of the remote API endpoint.
 	 */
-	constructor(account, apiKey, baseUrl = "https://smsapi.free-mobile.fr") {
+	constructor(account: string, apiKey: string, baseUrl: string|URL = "https://smsapi.free-mobile.fr") {
 		const url = baseUrl instanceof URL ? baseUrl.href : baseUrl;
 		this.account = account;
 		this.apiKey = apiKey;
@@ -39,10 +33,10 @@ export class Client {
 
 	/**
 	 * Sends an SMS message to the underlying account.
-	 * @param {string} message The message text.
-	 * @returns {Promise<void>} Resolves when the message has been sent.
+	 * @param message The message text.
+	 * @returns Resolves when the message has been sent.
 	 */
-	async sendMessage(message) {
+	async sendMessage(message: string): Promise<void> {
 		const query = new URLSearchParams({msg: message.trim().slice(0, 160), pass: this.apiKey, user: this.account});
 		const response = await fetch(new URL(`sendmsg?${query}`, this.baseUrl), {headers: {"user-agent": navigator.userAgent}});
 		if (!response.ok) throw Error(`${response.status} ${response.statusText}`);
