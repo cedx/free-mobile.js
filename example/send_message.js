@@ -1,5 +1,5 @@
-import console from "node:console";
 import {Client} from "@cedx/free-mobile";
+import console from "node:console";
 
 // Sends an SMS notification.
 try {
