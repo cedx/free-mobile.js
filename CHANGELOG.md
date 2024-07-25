@@ -1,7 +1,7 @@
 # Changelog
 
 ## Version [15.2.0](https://github.com/cedx/free-mobile.js/compare/v15.1.1...v15.2.0)
-- The `Client` constructor now accepts a `URL` object for the `baseUrl` parameter.
+- The `Client` constructor allows a `URL` object for the `baseUrl` parameter.
 
 ## Version [15.1.1](https://github.com/cedx/free-mobile.js/compare/v15.1.0...v15.1.1)
 - Migrated the documentation to the [GitHub wiki](https://github.com/cedx/free-mobile.js/wiki).
