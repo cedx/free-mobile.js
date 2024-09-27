@@ -36,10 +36,9 @@ export class Client {
 	 * @param message The message text.
 	 * @returns Resolves when the message has been sent.
 	 */
-	sendMessage(message: string): Promise<void> {
+	async sendMessage(message: string): Promise<void> {
 		const query = new URLSearchParams({msg: message.trim().slice(0, 160), pass: this.apiKey, user: this.account});
-		return fetch(new URL(`sendmsg?${query}`, this.baseUrl), {headers: {"user-agent": navigator.userAgent}}).then(response => {
-			if (!response.ok) throw Error(`${response.status} ${response.statusText}`);
-		});
+		const response = await fetch(new URL(`sendmsg?${query}`, this.baseUrl), {headers: {"user-agent": navigator.userAgent}});
+		if (!response.ok) throw Error(`${response.status} ${response.statusText}`);
 	}
 }
