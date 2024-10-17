@@ -19,4 +19,3 @@ jobs:
         env:
           FREEMOBILE_ACCOUNT: ${{secrets.FREEMOBILE_ACCOUNT}}
           FREEMOBILE_API_KEY: ${{secrets.FREEMOBILE_API_KEY}}
-          NODE_ENV: test
