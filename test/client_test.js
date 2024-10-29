@@ -17,7 +17,7 @@ describe("Client", () => {
 		it("should send SMS messages if the credentials are valid", () => {
 			const account = env.FREEMOBILE_ACCOUNT ?? "";
 			const apiKey = env.FREEMOBILE_API_KEY ?? "";
-			return doesNotReject(new Client(account, apiKey).sendMessage("Hello Cédric, from Node.js !"));
+			return doesNotReject(new Client(account, apiKey).sendMessage("Hello Cédric, from Node.js!"));
 		});
 	});
 });
