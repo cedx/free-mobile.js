@@ -8,6 +8,5 @@ try {
 	console.log("The message was sent successfully.");
 }
 catch (error) {
-	const message = error instanceof Error ? error.message : String(error);
-	console.log(`An error occurred: ${message}`);
+	console.log(error instanceof SyntaxError ? error.message : error);
 }
