@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [16.0.0](https://github.com/cedx/free-mobile.js/compare/v15.2.0...v16.0.0)
+- Ported the source code to [CoffeeScript](https://coffeescript.org).
+
 ## Version [15.2.0](https://github.com/cedx/free-mobile.js/compare/v15.1.1...v15.2.0)
 - The `Client` constructor allows a `URL` object for the `baseUrl` parameter.
 
