@@ -10,6 +10,6 @@ export class Client
 
 	# Sends an SMS message to the underlying account.
 	sendMessage: (message) ->
-		query = new URLSearchParams msg: message.trim().slice(0, 160), pass: @apiKey, user: @account
+		query = new URLSearchParams msg: message.trim()[...160], pass: @apiKey, user: @account
 		response = await fetch new URL("sendmsg?#{query}", @baseUrl), headers: {"user-agent": navigator.userAgent}
 		throw Error "#{response.status} #{response.statusText}" unless response.ok
