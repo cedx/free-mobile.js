@@ -6,7 +6,7 @@ export class Client
 		url = if baseUrl instanceof URL then baseUrl.href else baseUrl
 		@account = account
 		@apiKey = apiKey
-		@baseUrl = new URL(if url.endsWith("/") then url else "#{url}/")
+		@baseUrl = new URL if url.endsWith("/") then url else "#{url}/"
 
 	# Sends an SMS message to the underlying account.
 	sendMessage: (message) ->
