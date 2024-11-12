@@ -13,6 +13,6 @@ describe "Client", ->
 			await rejects new Client("anonymous", "secret").sendMessage("Hello World!")
 
 		it "should send SMS messages if the credentials are valid", ->
-			account = env.FREEMOBILE_ACCOUNT ? ""
-			apiKey = env.FREEMOBILE_API_KEY ? ""
+			account = env.FREEMOBILE_ACCOUNT or ""
+			apiKey = env.FREEMOBILE_API_KEY or ""
 			await doesNotReject new Client(account, apiKey).sendMessage("Hello Cédric, from Node.js!")
