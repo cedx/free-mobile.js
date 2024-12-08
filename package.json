@@ -36,6 +36,6 @@
 		"sms"
 	],
 	"scripts": {
-		"test": "gulp test"
+		"test": "cake test"
 	}
 }
