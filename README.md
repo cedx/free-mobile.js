@@ -6,6 +6,7 @@ in [JavaScript](https://developer.mozilla.org/docs/Web/JavaScript).
 
 ## Documentation
 - [User guide](https://github.com/cedx/free-mobile.js/wiki)
+- [API reference](https://cedx.github.io/free-mobile.js)
 - [Examples](https://github.com/cedx/free-mobile.js/tree/main/example)
 
 ## Development
