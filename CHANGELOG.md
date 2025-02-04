@@ -1,5 +1,8 @@
 # Changelog
 
+## Version [16.1.0](https://github.com/cedx/free-mobile.js/compare/v16.0.0...v16.1.0)
+- Ported the source code to [TypeScript](https://www.typescriptlang.org).
+
 ## Version [16.0.0](https://github.com/cedx/free-mobile.js/compare/v15.2.0...v16.0.0)
 - Ported the source code to [CoffeeScript](https://coffeescript.org).
 
