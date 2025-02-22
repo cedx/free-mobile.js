@@ -38,7 +38,7 @@ export class Client {
 	 */
 	async sendMessage(message: string): Promise<void> {
 		const query = new URLSearchParams({msg: message.trim().slice(0, 160), pass: this.apiKey, user: this.account});
-		const response = await fetch(new URL(`sendmsg?${query}`, this.baseUrl), {headers: {"user-agent": navigator.userAgent}});
+		const response = await fetch(new URL(`sendmsg?${query}`, this.baseUrl), {headers: {"User-Agent": navigator.userAgent}});
 		if (!response.ok) throw Error(`${response.status} ${response.statusText}`);
 	}
 }
