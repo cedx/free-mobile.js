@@ -1,6 +1,0 @@
-<Solution>
-	<Project Path="free-mobile.esproj">
-		<Build />
-		<Deploy />
-	</Project>
-</Solution>
