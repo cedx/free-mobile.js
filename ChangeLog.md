@@ -31,7 +31,7 @@
 - Updated the package dependencies.
 
 ## Version [13.0.1](https://github.com/cedx/free-mobile.js/compare/v13.0.0...v13.0.1)
-- Fixed a packaging issue : the new event system was not redistributed.
+- Fixed a packaging issue: the new event system was not redistributed.
 
 ## Version [13.0.0](https://github.com/cedx/free-mobile.js/compare/v12.2.0...v13.0.0)
 - Breaking change: changed the signature of the `Client` events.
