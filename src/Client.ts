@@ -1,3 +1,6 @@
+import {version} from "node:process";
+import pkg from "../package.json" with {type: "json"};
+
 /**
  * Sends messages by SMS to a [FreeMobile](https://mobile.free.fr) account.
  */
@@ -38,7 +41,8 @@ export class Client {
 	 */
 	async sendMessage(message: string): Promise<void> {
 		const query = new URLSearchParams({msg: message.trim().slice(0, 160), pass: this.#password, user: this.#userName});
-		const response = await fetch(new URL(`sendmsg?${query}`, this.baseUrl), {headers: {"User-Agent": navigator.userAgent}});
+		const userAgent = `Node.js/${version.slice(1)} | Belin.FreeMobile/${pkg.version}`;
+		const response = await fetch(new URL(`sendmsg?${query}`, this.baseUrl), {headers: {"User-Agent": userAgent}});
 		if (!response.ok) throw new Error(`${response.status} ${response.statusText}`);
 	}
 }
