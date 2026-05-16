@@ -1,11 +1,11 @@
 {
 	"author": "Cédric Belin <cedx@outlook.com>",
-	"bugs": "https://github.com/cedx/free-mobile.js/issues",
+	"bugs": "https://github.com/CedX/FreeMobile.js/issues",
 	"description": "Send SMS messages to your Free Mobile device.",
-	"homepage": "https://github.com/cedx/free-mobile.js",
+	"homepage": "https://github.com/CedX/FreeMobile.js",
 	"license": "MIT",
 	"name": "@cedx/free-mobile",
-	"repository": "cedx/free-mobile.js",
+	"repository": "CedX/FreeMobile.js",
 	"type": "module",
 	"version": "16.1.0",
 	"devDependencies": {
